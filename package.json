@@ -1,0 +1,13 @@
+{
+  "name": "topcontent-api",
+  "version": "1.0.0",
+  "dependencies": {
+    "@redocly/openapi-cli": "^0.8.4"
+  },
+  "private": true,
+  "scripts": {
+    "start": "openapi preview-docs",
+    "build": "openapi bundle -o dist",
+    "test": "openapi validate"
+  }
+}
