@@ -6,7 +6,7 @@ info:
   contact:
     email: support@topcontent.com
   x-logo:
-    url: 'https://topcontent.com/wp-content/uploads/2018/10/TopContent_source_sans_pro2.png'
+    url: 'https://topcontent.com/developers/api-documentation/images/logo_doc.png'
 #  description: >
 #externalDocs:
 #  description: Find out how to create a GitHub repo for your OpenAPI definition.
