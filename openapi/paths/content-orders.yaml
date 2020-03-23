@@ -1,0 +1,44 @@
+#parameters:
+#  - name: pretty_print
+#    in: query
+#    description: Pretty print response
+#    schema:
+#      type: boolean
+post:
+  tags:
+    - Content Orders
+  summary: Order an item or group of items to write.
+  operationId: PostContentOrder
+  security:
+      - api_key: []
+  description: |
+      Submits a content order. One order should contain at least one item. On order could contain different types of items.
+  requestBody:
+    $ref: ../components/requestBodies/ContentOrder.yaml
+#  parameters:
+#    - name: username
+#      in: path
+#      description: The name that needs to be fetched
+#      required: true
+#      schema:
+#        type: string
+#    - name: with_email
+#      in: query
+#      description: Filter users without email
+#      schema:
+#        type: boolean
+
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ContentOrderSuccessResponse.yaml
+#          example:
+#            username: user1
+#            email: user@example.com
+    '403':
+      description: Forbidden
+    '404':
+      description: User not found

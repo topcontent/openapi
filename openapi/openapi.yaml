@@ -1,84 +1,200 @@
 openapi: 3.0.2
 info:
-  version: 1.0.0
-  title: Example.com
-  termsOfService: 'https://example.com/terms/'
+  version: 2.1
+  title: Topcontent REST API
+  termsOfService: 'https://topcontent.com/terms-and-conditions/'
   contact:
-    email: contact@example.com
-    url: 'http://example.com/contact'
-  license:
-    name: Apache 2.0
-    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+    email: support@topcontent.com
   x-logo:
-    url: 'https://redocly.github.io/openapi-template/logo.png'
-  description: >
-    This is an **example** API to demonstrate features of OpenAPI specification
-
-    # Introduction
-
-    This API definition is intended to to be a good starting point for
-    describing your API in 
-
-    [OpenAPI/Swagger
-    format](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.2.md).
-
-    It also demonstrates features of
-    [create-openapi-repo](https://github.com/Redocly/create-openapi-repo) tool
-    and 
-
-    [Redoc](https://github.com/Redocly/Redoc) documentation engine. So beyond
-    the standard OpenAPI syntax we use a few 
-
-    [vendor
-    extensions](https://github.com/Redocly/Redoc/blob/master/docs/redoc-vendor-extensions.md).
-
-
-    # OpenAPI Specification
-
-    The goal of The OpenAPI Specification is to define a standard,
-    language-agnostic interface to REST APIs which
-
-    allows both humans and computers to discover and understand the capabilities
-    of the service without access to source
-
-    code, documentation, or through network traffic inspection. When properly
-    defined via OpenAPI, a consumer can 
-
-    understand and interact with the remote service with a minimal amount of
-    implementation logic. Similar to what
-
-    interfaces have done for lower-level programming, OpenAPI removes the
-    guesswork in calling the service.
-externalDocs:
-  description: Find out how to create a GitHub repo for your OpenAPI definition.
-  url: 'https://github.com/Rebilly/generator-openapi-repo'
+    url: 'https://topcontent.com/wp-content/uploads/2018/10/TopContent_source_sans_pro2.png'
+#  description: >
+#externalDocs:
+#  description: Find out how to create a GitHub repo for your OpenAPI definition.
+#  url: 'https://github.com/Rebilly/generator-openapi-repo'
 tags:
-  - name: Echo
-    description: Example echo operations
-  - name: User
-    description: Operations about user
+  - name: Introduction
+    description: |
+      Welcome to the reference for the Topcontent REST API!
+      ## Flow
+      The Topcontent API allows you to connect your app to Topcontent, and order human translation and content without needing to use our self-service. Because human translation and writing is not instant, our API is asynchronous. This means that you need to allow time for contributors to complete their work.
+      ## What happens behind the scenes
+      Once an order has been submitted, Topcontent contributorrs receive a notification of new work available and work on tasks on a first-come, first-serve basis. They work on the tasks within our system’s interface.
+      ## Submitting an order
+      //TODO
+      ## Checking on the status of the order
+      //TODO
+      ## Getting the items back
+      //TODO
+      ## Escaping content for translation
+      //TODO
+      ## Quality levels supported through the API
+      //TODO
+      ## Review workflows
+      //TODO
+      ## Request corrections for the item
+      //TODO
+  - name: Sandbox Testing
+    description: |
+      ## The test area for your API code
+      What’s different about the sandbox?
+      - Add free credits to your account for testing
+      - Trigger the “completion” of your translation jobs (i.e. be a faux translator) so that you can test what your code does in response
+      - Manually toggle between item states (e.g. pending to reviewable) and other actions without triggering callbacks
+      - Test callbacks by clicking the Send Callback button
+
+      Note: The sandbox items database may occasionally be wiped clean to prepare it for new features so you should not rely on the sandbox for permanent storage.
+      ## How to use the sandbox
+      - Read the developer documentation
+      - Create a sandbox account
+      - Log in and generate a set of sandbox API keys
+      - Test your app, using http://api.sandbox.topcontent.com/v2/ as the base call URL
+
+      Ready to deploy? Head over to the live Topcontent site. Create a full client account, generate a set of live API keys - and remember to paste them into your app.
+  - name: Best Practices
+    description: |
+      The following checklist contains practices critical for a healthy integration. Make sure your integration has all of them.
+      ## Follow the Gengo API workflow
+      The proper workflow is as follows:
+      - Submit text/file for translation or place a content order
+      - Get order status
+      - Retrieve completed items
+
+      See the Visual Guide for more information.
+
+      ## Make use of triple brackets
+      If ordering trranslations triple brackets are useful to make sure certain texts, such as brand names, are preserved and uncharged. [Learn more](#)
+
+      Note: HTML tags are an exception to this rule. Do not bracket them as you are not charged for them by default.
+      ## Provide instructions for contributors
+      //TODO
+      ## Store internal information in custom_data
+      The “custom_data” parameter is designed for users of our API to help connect information in your system for reference. Do not store reference information in the callback_url or slug.
+      ## Use both callback functionality AND update polling, not just one or the other
+      The callback/webhook functionality is used to receive notifications about the item and is an easy way to get updates when your items change status. You can learn more about when these callbacks are sent on the [callbacks page](#).
+
+      However, due to possible network issues, callbacks must not be relied upon entirely. Make sure to periodically poll for items to stay updated with your items’ statuses. You can then the available items using the ```GET /translations/items/{ids}/``` endpoint as per the Visual Guide.
+      ## Include the functionality to approve or return the items for corrections
+      Make sure to include the option to approve or return items for corrections using the ```PUT /translations/items/``` endpoint as necessary.
+
+      See our section for [review workflows](#) for more information.
+
+      Unless you are working with trusted or preferred contributors, it is best to use ```auto_approve = 0```. By getting the item approved, you acknowledge that you are happy with the result, and thus forfeit your right to request for corrections.
+  - name: Overview
+    description: |
+      In order to use the API, you should authenticate your request by including your API key in each request as a GET or POST as a 'api_key' param.
+      ## Headers
+      Make sure you have the following content type headers are set on every request:
+
+      ```Accept: application/json``` ```Content-Type: application/json```
+      ## Response Formats
+      All API responses will contain at least 1 and possibly 2 key-value pairs. The second key’s name will depend on whether the call was successful or not. The second key name for a successful call with an expected payload will be “response”, i.e. {“status” : “ok”, “response” : ”...”} and a failed response will have second key name as “errors”, i.e. {“status” : “errors”, “err” : {“code” : ...}}
+      ## Encoding
+      Topcontent expects all data to be UTF-8 encoded and will respond with UTF-8 encoded data. Make sure you encode your data in UTF-8 to avoid issues.
+      ## Throttling
+      To ensure fair usage in our API, we put limits on the number of requests per originating IP address.
+
+      //TODO
+
+      Requests are tracked at millisecond granularity. For example, a 100 requests/second corresponds to 10 requests every 100 milliseconds.
+  - name: Authentication
+    description: |
+      In order to use the API, you should authenticate your request by including your API key in each request as a GET or POST as a 'api_key' param.
+      //TODO How about use public and private_kay? Will not be easy to use Postman in this case
+  - name: Callback URLs
+    description: |
+      When submitting an order, you can set “callback_url” for each item in the order. Topcontent will post any updates about the item as they happen which makes it the most efficient way to sync your system with Topcontent.
+
+      Callback notifications are sent when:
+      - An item is ready for review
+      - An item has been approved automatically
+      - An item is manually approved via our Topcontent self-service interface
+
+  - name: Errors
+    description: |
+      Topcontent uses conventional HTTP response codes to indicate the success or failure of an API request. The table below contains a summary of the typical response codes:
+
+      Code | Description
+      --------- | -------
+      200 | Everything is ok.
+      400 | Valid data was given but the request has failed.
+      401 | No valid API Key was given.
+      404 | The request resource could not be found.
+      422 | The payload has missing required parameters or invalid data was given.
+      429 | Too many attempts.
+      500 | Request failed due to an internal error in Topcontent.
+      503 | Topcontent offline for maintenance.
+  - name: Translation Orders
+    description: |
+      This describes the endpoints that deal with translation orders on the Topcontent API.
+  - name: Translation Items
+    description: |
+      This describes the endpoints that deal with translation items on the Topcontent API.
+  - name: Translation Qualities
+    description: |
+      This describes the endpoints that deal with translation qualities on the Topcontent API.
+  - name: Translation Language Directions
+    description: |
+      This describes the endpoints that deal with translation language directions on the Topcontent API.
+  - name: Content Orders
+    description: |
+      This describes the endpoints that deal with content orders on the Topcontent API.
+  - name: Content Items
+    description: |
+      This describes the endpoints that deal with content items on the Topcontent API.
+  - name: Content Qualities
+    description: |
+      This describes the endpoints that deal with content qualities on the Topcontent API.
+  - name: Content Languages
+    description: |
+      This describes the endpoints that deal with content languages on the Topcontent API.
+
+  - name: Invoices
+    description: |
+      This describes the endpoints that deal with account invoices on the Topcontent API.
+  - name: Balance
+    description: |
+      This describes the endpoints that deal with balance on the Topcontent API.
+
+x-tagGroups:
+  - name: Getting started
+    tags:
+      - Introduction
+      - Sandbox Testing
+      - Best Practices
+  - name: API Details
+    tags:
+      - Overview
+      - Authentication
+      - Callback URLs
+      - Errors
+  - name: Translations
+    tags:
+      - Translation Orders
+      - Translation Items
+      - Translation Qualities
+      - Translation Language Directions
+  - name: Content
+    tags:
+      - Content Orders
+      - Content Items
+      - Content Qualities
+      - Content Languages
+  - name: Account
+    tags:
+      - Invoices
+      - Balance
 servers:
-  - url: 'http://example.com/api/v1'
-  - url: 'https://example.com/api/v1'
+  - url: 'https://app.topcontent.com/api/v2'
 paths:
-  '/users/{username}':
-    $ref: 'paths/users@{username}.yaml'
-  /echo:
-    $ref: paths/echo.yaml
-components:
-  securitySchemes:
-    main_auth:
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: 'http://example.com/api/oauth/dialog'
-          scopes:
-            'read:users': read users info
-            'write:users': modify or remove users
-    api_key:
-      type: apiKey
-      in: header
-      name: api_key
-    basic_auth:
-      type: http
-      scheme: basic
+  '/translations/orders':
+    $ref: 'paths/translations-orders.yaml'
+
+  '/content/orders':
+    $ref: 'paths/content-orders.yaml'
+#  account:
+#    $ref: 'paths/account.yaml'
+#  '/users/{username}':
+#    $ref: 'paths/users@{username}.yaml'
+#  /echo:
+#    $ref: paths/echo.yaml
+#components:

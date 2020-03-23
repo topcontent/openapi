@@ -1,0 +1,6 @@
+content:
+  application/json:
+    schema:
+      $ref: ../schemas/ContentOrder.yaml
+description: Content order resource
+required: true
