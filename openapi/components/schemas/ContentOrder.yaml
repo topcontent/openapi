@@ -15,7 +15,7 @@ properties:
 #     - 'one'
 #     - 'two'
   order_name:
-    description: Name of the order. For internally storing, can be generic
+    description: Name of the order.
     type: string
     maxLength: 255
     example: Translate EN to SV
@@ -44,12 +44,16 @@ properties:
           minLength: 2
           maxLength: 5
           example: SV
-        quality_code:
+        quality:
           description: Quality level.
           type: string
           minLength: 2
           maxLength: 2
           example: business
+          enum:
+            - 'raw'
+            - 'standard'
+            - 'business'
         topic_id:
           description: ID of the ordering topic.
           type: integer
@@ -114,7 +118,10 @@ properties:
           type: array
           items:
             type: string
-            example: ['https://wiki.com', 'https://wiki2.com', 'https://wiki3.com']
+            example:
+              - 'https://wiki.com'
+              - 'https://wiki2.com'
+              - 'https://wiki3.com'
         target_url:
           description: //TODO
           type: string

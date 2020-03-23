@@ -27,8 +27,8 @@ properties:
 #          type: string
 #          maxLength: 255
       example:
-       language_code: 'language_code is a required field.'
-       quality_code: 'Please make sure you send a correct quality.'
+       source_language_code: '//TODO'
+       target_language_code: '//TODO'
 #    properties:
 #      order_id:
 #        type: integer

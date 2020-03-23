@@ -15,31 +15,18 @@ post:
       Submits an order for translation. One order should contain at least one item. On order could contain different types of items.
   requestBody:
     $ref: ../components/requestBodies/TranslationOrder.yaml
-
-#  parameters:
-#    - name: username
-#      in: path
-#      description: The name that needs to be fetched
-#      required: true
-#      schema:
-#        type: string
-#    - name: with_email
-#      in: query
-#      description: Filter users without email
-#      schema:
-#        type: boolean
-
   responses:
     '200':
       description: Success
       content:
         application/json:
           schema:
-#            $ref: ../components/schemas/User.yaml
-          example:
-            username: user1
-            email: user@example.com
-    '403':
+            $ref: ../components/schemas/ContentOrderSuccessResponse.yaml
+    '422':
       description: Forbidden
-    '404':
-      description: User not found
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/TranslationOrderErrorResponse.yaml
+    '500':
+      description: Server error

@@ -7,12 +7,12 @@
 post:
   tags:
     - Content Orders
-  summary: Order an item or group of items to write.
+  summary: Submit a content order
   operationId: PostContentOrder
   security:
       - api_key: []
   description: |
-      Submits a content order. One order should contain at least one item. On order could contain different types of items.
+      Order an item or group of items to write. One order should contain at least one item.
   requestBody:
     $ref: ../components/requestBodies/ContentOrder.yaml
 #  parameters:
@@ -41,5 +41,47 @@ post:
         application/json:
           schema:
             $ref: ../components/schemas/ContentOrderErrorResponse.yaml
-    '404':
-      description: User not found
+    '500':
+      description: Server error
+get:
+  tags:
+    - Content Orders
+  summary: Get Order by ID
+  operationId: GetContentOrder
+  security:
+      - api_key: []
+  description: |
+      Retrieves a group of items that were previously submitted together by their order id.
+#  parameters:
+#    - name: username
+#      in: path
+#      description: The name that needs to be fetched
+#      required: true
+#      schema:
+#        type: string
+#    - name: with_email
+#      in: query
+#      description: Filter users without email
+#      schema:
+#        type: boolean
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+delete:
+  tags:
+    - Content Orders
+  summary: Delete Order by ID
+  operationId: DeleteContentOrder
+  security:
+      - api_key: []
+  description: |
+      Cancels all available items in an order. Please keep in mind that this will not cancel items that are in another status (e.g. pending, reviewable, etc.).
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
