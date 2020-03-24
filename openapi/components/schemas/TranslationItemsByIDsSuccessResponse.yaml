@@ -1,0 +1,18 @@
+type: object
+properties:
+  status:
+#    description: ""
+    type: string
+    example: "ok"
+  response:
+    type: object
+    properties:
+      items_count:
+        type: integer
+        description: The total amount of items.
+        example: 1
+      items:
+        type: array
+        description: List of found items filtered by the given parameters.
+        items:
+          $ref: ./TranslationItem.yaml

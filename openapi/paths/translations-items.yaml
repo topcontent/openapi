@@ -1,0 +1,27 @@
+get:
+  tags:
+    - Translation Items
+  summary: Get translation items
+  operationId: GetTranslationItems
+  security:
+      - api_key: []
+  description: |
+      Retrieves a list of the most recent items filtered by the given parameters.
+  parameters:
+    - $ref: ../components/parameters/collectionTranslationItemStatus.yaml
+    - $ref: ../components/parameters/collectionCount.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/TranslationItemsSuccessResponse.yaml
+    '422':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/TranslationOrderErrorResponse.yaml
+    '500':
+      description: Server error

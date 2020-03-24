@@ -13,8 +13,4 @@ properties:
         description: Available balance
         example: 1245.50
       currency:
-        type: string
-        description: Currency
-        enum:
-          - EUR
-        example: "EUR"
+        $ref: "./Currency.yaml"

@@ -87,7 +87,7 @@ tags:
 
       ```Accept: application/json``` ```Content-Type: application/json```
       ## Response Formats
-      All API responses will contain at least 1 and possibly 2 key-value pairs. The first key’s name will depend on whether the call was successful or not. The second key name for a successful call with an expected payload will be “response”, i.e. {“status” : “ok”, “response” : ”...”} and a failed response will have second key name as “errors”, i.e. {“status” : “error”, “errors” : {“code” : ...}}
+      All API responses will contain at least 1 and possibly 2 key-value pairs. The first key’s name will depend on whether the call was successful or not. The second key name for a successful call with an expected payload will be “response”, i.e. ```{“status” : “ok”, “response” : ”...”}``` and a failed response will have second key name as “errors”, i.e. ```{“status” : “error”, “errors” : {“code” : "..."}}```
       ## Encoding
       Topcontent expects all data to be UTF-8 encoded and will respond with UTF-8 encoded data. Make sure you encode your data in UTF-8 to avoid issues.
       ## Throttling
@@ -191,6 +191,12 @@ servers:
 paths:
   '/translations/orders':
     $ref: 'paths/translations-orders.yaml'
+  '/translations/orders/{order_id}':
+      $ref: 'paths/translations-order.yaml'
+  '/translations/items':
+    $ref: 'paths/translations-items.yaml'
+  '/translations/items/{item_ids}':
+      $ref: 'paths/translations-items-by-ids.yaml'
 
   '/content/orders':
     $ref: 'paths/content-orders.yaml'

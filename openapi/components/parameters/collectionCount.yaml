@@ -1,4 +1,4 @@
-name: limit
+name: count
 in: query
 description: The number of items to return (with a maximum of 200).
 schema:

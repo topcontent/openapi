@@ -1,13 +1,13 @@
 #parameters:
-#  - name: pretty_print
-#    in: query
+#  - name: order_id
+#    in: path
 #    description: Pretty print response
 #    schema:
 #      type: boolean
 post:
   tags:
     - Translation Orders
-  summary: Submit a translation order
+  summary: Create translation order
   operationId: PostTranslationOrder
   security:
       - api_key: []

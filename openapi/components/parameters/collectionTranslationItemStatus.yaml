@@ -1,0 +1,11 @@
+name: status
+in: query
+description: |
+  Retrieve a list of items with the provided status. One of the following values:
+   - ```draft```
+   - ```pending```
+   - ```revising```
+   - ```reviewable```
+   - ```approved```
+schema:
+  type: string

@@ -31,7 +31,7 @@ properties:
          - draft
          - in production
         example: "in production"
-      item_count:
+      items_count:
         type: integer
         description: "//TODO"
         example: 5
@@ -40,9 +40,7 @@ properties:
         description: "//TODO"
         example: 120.50
       currency:
-        type: string
-        description: "//TODO"
-        example: "EUR"
+        $ref: "./Currency.yaml"
 #    description: "An array of Items Payloads. Please see the item payloads information for full details of the required parameters."
 #    minItems: 1
 #    items:

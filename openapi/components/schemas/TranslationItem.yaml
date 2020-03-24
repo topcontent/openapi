@@ -1,0 +1,116 @@
+type: object
+required:
+  - slug
+  - source_text
+  - source_language_code
+  - target_language_code
+  - quality
+properties:
+  item_id:
+    type: integer
+    description: Item ID
+    readOnly: true
+    example: 167834
+  order_id:
+    type: integer
+    description: Order ID
+    readOnly: true
+    example: 3456
+  credits_used:
+    type: number
+    description: "//TODO"
+    example: 1.08
+  currency:
+    $ref: "./Currency.yaml"
+  slug:
+    description: Item title. For internally storing, can be generic.
+    type: string
+    maxLength: 150
+    example: "Information about product description"
+  type:
+    description: |
+      Item type. Available options:
+        - ```text``` - (default) Use for ordering text items via the API;
+        - ```file``` - Use for ordering file items via the API.
+    type: string
+    default: text
+    example: text
+  source_text:
+    description: Original body of text (to be translated). Max length of 5000 words.
+    type: string
+    example: "Get the Best Product Description Writing Service with Topcontent"
+  translated_text:
+    description: Translated text.
+    type: string
+    readOnly: true
+    example: "Få de bästa produktbeskrivningarna skrivna av Topcontent"
+  source_language_code:
+    description: Source language code.
+    type: string
+    minLength: 2
+    maxLength: 5
+    example: EN
+  target_language_code:
+    description: Target language code.
+    type: string
+    minLength: 2
+    maxLength: 5
+    example: SV
+  quality:
+    description: Quality level.
+    type: string
+    minLength: 2
+    maxLength: 2
+    enum:
+     - 'standard'
+     - 'business'
+    example: business
+  topic_id:
+    description: ID of the ordering topic.
+    type: integer
+    example: 2
+  tone_of_voice:
+    description: |
+      Describing the tone of the text examples: ```Informal```, ```Friendly```, ```Business```, ```Formal```. Those 4 are recommended. Those will give best results.
+    type: string
+    writeOnly: true
+    maxLength: 150
+    example: Business
+  instructions:
+    description: Instructions for contributor to consider when writing. It is strongly encouraged to provide a detailed instructions for the contributor.
+    type: string
+    maxLength: 1000
+    writeOnly: true
+    example: 'Translate texts simply, clearly and correctly. Please pay close attention to the tone of voice and context - do not over-complicate the translation either.'
+  auto_approve:
+    description: Whether to automatically approve an item after they’ve been finished. Default is false If false, completed item will await review and approval by customer for 96 hours.
+    type: boolean
+    example: false
+    default: fasle
+  max_chars:
+    description: Expresses character limit of translation. Should always be greater than 0.
+    type: integer
+    maxLength: 1
+    example: 300
+  custom_data:
+    description: Up to 1K of storage for client-specific data that may be helpful for you to have mapped to this item.
+    type: string
+    example: "{request_id: 87353}"
+  return_options:
+    description: Contains array. Please see the return options payloads page for full details of the parameters.
+    type: object
+    properties:
+      integration:
+        type: string
+        enum:
+          - 'callback_url'
+      url:
+        type: string
+        format: URL
+        description: Callback URL should not contain authentication information.
+        maxLength: 255
+        example: "https://mysite.com/receive_topcontent_items"
+      auto_send:
+        type: boolean
+        description: //TODO
+        default: false
