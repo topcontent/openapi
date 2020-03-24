@@ -1,0 +1,4 @@
+description: |
+  The <a target="_blank" href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code.
+type: string
+example: "EUR"

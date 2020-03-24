@@ -1,0 +1,12 @@
+name: offset
+in: query
+description: The number of items offset. Used for pagination.
+schema:
+  type: integer
+  minimum: 0
+  default: 0
+
+
+
+
+

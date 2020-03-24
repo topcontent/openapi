@@ -1,0 +1,10 @@
+name: year
+in: query
+description: |
+  Use this parameter to filter for items from a specific year (e.g. ```2018```).
+schema:
+  type: integer
+  minLength: 4
+  maxLength: 4
+
+

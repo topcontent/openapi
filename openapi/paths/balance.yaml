@@ -1,0 +1,24 @@
+#parameters:
+#  - name: pretty_print
+#    in: query
+#    description: Pretty print response
+#    schema:
+#      type: boolean
+get:
+  tags:
+    - Balance
+  summary: Get balance
+  operationId: GetBalance
+  security:
+      - api_key: []
+  description: |
+      Retrieve the details of the credit balance.
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/BalanceSuccessResponse.yaml
+    '500':
+      description: Server error

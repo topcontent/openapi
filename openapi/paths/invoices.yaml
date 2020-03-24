@@ -1,0 +1,22 @@
+get:
+  tags:
+    - Invoices
+  summary: List invoices
+  operationId: GetInvoices
+  security:
+      - api_key: []
+  description: |
+      Retrieve all invoices on the account. Optionally filter on year.
+
+      The results are paginated.
+  parameters:
+    - $ref: ../components/parameters/collectionYear.yaml
+    - $ref: ../components/parameters/collectionLimit.yaml
+    - $ref: ../components/parameters/collectionOffset.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/InvoicesSuccessResponse.yaml

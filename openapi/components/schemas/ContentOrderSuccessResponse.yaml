@@ -16,7 +16,7 @@ properties:
   status:
 #    description: ""
     type: string
-    example: "success"
+    example: "ok"
   response:
     type: object
     properties:

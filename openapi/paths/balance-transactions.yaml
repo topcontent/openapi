@@ -1,0 +1,28 @@
+#parameters:
+#  - name: pretty_print
+#    in: query
+#    description: Pretty print response
+#    schema:
+#      type: boolean
+get:
+  tags:
+    - Balance
+  summary: List balance transactions
+  operationId: GetBalanceTransactions
+  security:
+      - api_key: []
+  description: |
+      Retrieve balance transactions on the account. The results are paginated.
+  parameters:
+    - $ref: ../components/parameters/collectionYear.yaml
+    - $ref: ../components/parameters/collectionLimit.yaml
+    - $ref: ../components/parameters/collectionOffset.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/BalanceTransactionsSuccessResponse.yaml
+    '500':
+      description: Server error

@@ -158,9 +158,10 @@ properties:
           example: false
           default: fasle
         custom_data:
-          description: "Up to 1K of storage for client-specific data that may be helpful for you to have mapped to this item"
-          type: string
-          example: "{request_id: 87353}"
+          $ref: ./CustomData.yaml
+#          description: "Up to 1K of storage for client-specific data that may be helpful for you to have mapped to this item"
+#          type: string
+#          example: "{request_id: 87353}"
         return_options:
           description: Contains array. Please see the return options payloads page for full details of the parameters.
           type: array
