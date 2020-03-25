@@ -181,7 +181,7 @@ x-tagGroups:
     tags:
       - Translation orders
       - Translation items
-      - Review translation item
+#      - Review translation item
       - Translation services
   - name: Content
     tags:

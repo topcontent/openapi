@@ -1,13 +1,19 @@
 type: object
 properties:
   status:
-#    description: ""
     type: string
+    description: |
+      Status of the reply. Possible values:
+        - ```ok``` - successful request;
+        - ```error``` - failed request.
     example: "error"
   errors:
     type: array
+    description: Array of errors
     items:
-      type: object
+      type: array
       example:
-       source_language_code: '//TODO'
-       target_language_code: '//TODO'
+        source_language_code:
+          - "The source_language_code is required."
+        target_language_code:
+          - "The target_language_code is required."

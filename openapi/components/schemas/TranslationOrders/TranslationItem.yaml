@@ -19,12 +19,14 @@ properties:
   credits_used:
     type: number
     format: double
+    readOnly: true
     description: The total amount of the order.
     example: 1.08
   currency:
     $ref: "../CurrencyCode.yaml"
   status:
     type: string
+    readOnly: true
     description: |
       One of the following values:
        - ```draft```
@@ -33,28 +35,14 @@ properties:
        - ```reviewable```
        - ```approved```
     example: 'approved'
-  slug:
-    description: Item title. For internally storing, can be generic.
-    type: string
-    maxLength: 150
-    example: "Information about product description"
   type:
     description: |
-      Item type. Available options:
-        - ```text``` - (default) Use for ordering text items via the API;
-        - ```file``` - Use for ordering file items via the API.
+      Item type. Available values:
+        - ```text``` - Use for ordering text item via the API;
+        - ```file``` - Use for ordering file item via the API.
     type: string
     default: text
     example: text
-  source_text:
-    description: Original body of text (to be translated). Max length of 5000 words.
-    type: string
-    example: "Get the Best Product Description Writing Service with Topcontent"
-  translated_text:
-    description: Translated text.
-    type: string
-    readOnly: true
-    example: "Få de bästa produktbeskrivningarna skrivna av Topcontent"
   source_language_code:
     $ref: ./SourceLanguageCode.yaml
   target_language_code:
@@ -65,6 +53,20 @@ properties:
     description: ID of the ordering topic.
     type: integer
     example: 2
+  slug:
+    description: Item title. For internally storing, can be generic.
+    type: string
+    maxLength: 150
+    example: "Information about product description"
+  source_text:
+    description: Original body of text (to be translated). Max length of 5000 words.
+    type: string
+    example: "Get the Best Product Description Writing Service with Topcontent"
+  translated_text:
+    description: Translated text. Available if a status of the item is ```reviewable``` or ```approved```
+    type: string
+    readOnly: true
+    example: "Få de bästa produktbeskrivningarna skrivna av Topcontent"
   tone_of_voice:
     description: |
       Describing the tone of the text examples: ```Informal```, ```Friendly```, ```Business```, ```Formal```. Those 4 are recommended. Those will give best results.

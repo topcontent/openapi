@@ -1,6 +1,6 @@
 put:
   tags:
-    - Review translation item
+    - Translation items
   summary: Revise translation item
   operationId: ReviseTranslationItem
   description: |

@@ -1,0 +1,43 @@
+type: object
+properties:
+  status:
+    $ref: ../Status.yaml
+  response:
+    type: object
+    properties:
+      order_id:
+        type: integer
+        description: The order’s unique identifier.
+        example: 673423
+      items_count:
+        type: integer
+        description: The total amount of items in the order.
+        example: 1
+      credits_used:
+        type: number
+        format: double
+        description: The total amount of the order.
+        example: 1.08
+      currency:
+        $ref: "../CurrencyCode.yaml"
+      items:
+        type: object
+#        description: //TODO
+        properties:
+          items_draft:
+            type: array
+            description: The items that are saved as drafts and are not currently visible to our translators.
+          items_pending:
+            type: array
+            description: The items that are being translated, but has not finished.
+            example:
+              - 567345
+          items_revising:
+            type: array
+            description: The items that the customer has requested that some changes are made to the translation.
+          items_reviewable:
+            type: array
+            description: The items that have been finished by our team but have not been approved by the customer yet. The completed translation is available.
+          items_approved:
+            type: array
+            description: The items that have been approved by the customer. The completed translation is available.
