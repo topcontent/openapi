@@ -1,0 +1,24 @@
+put:
+  tags:
+    - Review translation item
+  summary: Revise translation item
+  operationId: ReviseTranslationItem
+  description: |
+      Returns the item back for corrections to the translator for revisions.
+  requestBody:
+    $ref: ../components/requestBodies/ReviseTranslationItem.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/TranslationOrders/ReviewResponse.yaml
+    '422':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ForbiddenResponseIncorrectID.yaml
+    '500':
+      description: Server error

@@ -1,0 +1,24 @@
+put:
+  tags:
+    - Review translation item
+  summary: Approve translation item
+  operationId: ApproveTranslationItem
+  description: |
+      Approve an item.
+  requestBody:
+    $ref: ../components/requestBodies/ApproveTranslationItem.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/TranslationOrders/ReviewResponse.yaml
+    '422':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ForbiddenResponseIncorrectID.yaml
+    '500':
+      description: Server error

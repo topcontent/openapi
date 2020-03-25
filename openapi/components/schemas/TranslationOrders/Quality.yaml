@@ -1,0 +1,6 @@
+description: |
+  Quality level. Available values:
+  - ```standard```
+  - ```business```
+type: string
+example: business

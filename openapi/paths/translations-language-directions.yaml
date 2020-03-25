@@ -1,0 +1,24 @@
+get:
+  tags:
+    - Translation services
+  summary: Language directions
+  operationId: GetTranslationLanguageDirections
+  description: |
+      Returns supported translation language directions, qualities, and credit prices.
+  parameters:
+    - $ref: ../components/parameters/collectionTranslationLanguageSourceCode.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/TranslationOrders/LanguageDirectionsResponse.yaml
+    '422':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/TranslationOrders/TranslationOrderErrorResponse.yaml
+    '500':
+      description: Server error

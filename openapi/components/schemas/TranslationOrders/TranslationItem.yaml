@@ -18,10 +18,21 @@ properties:
     example: 3456
   credits_used:
     type: number
-    description: "//TODO"
+    format: double
+    description: The total amount of the order.
     example: 1.08
   currency:
-    $ref: "./Currency.yaml"
+    $ref: "../CurrencyCode.yaml"
+  status:
+    type: string
+    description: |
+      One of the following values:
+       - ```draft```
+       - ```pending```
+       - ```revising```
+       - ```reviewable```
+       - ```approved```
+    example: 'approved'
   slug:
     description: Item title. For internally storing, can be generic.
     type: string
@@ -45,26 +56,11 @@ properties:
     readOnly: true
     example: "Få de bästa produktbeskrivningarna skrivna av Topcontent"
   source_language_code:
-    description: Source language code.
-    type: string
-    minLength: 2
-    maxLength: 5
-    example: EN
+    $ref: ./SourceLanguageCode.yaml
   target_language_code:
-    description: Target language code.
-    type: string
-    minLength: 2
-    maxLength: 5
-    example: SV
+    $ref: ./TargetLanguageCode.yaml
   quality:
-    description: Quality level.
-    type: string
-    minLength: 2
-    maxLength: 2
-    enum:
-     - 'standard'
-     - 'business'
-    example: business
+    $ref: ./Quality.yaml
   topic_id:
     description: ID of the ordering topic.
     type: integer

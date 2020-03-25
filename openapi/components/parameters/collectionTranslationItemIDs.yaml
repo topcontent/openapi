@@ -1,0 +1,8 @@
+name: ids
+in: query
+description: |
+  Comma-separated list of item IDs
+
+  Example: ```167834,167835,167836```
+schema:
+  type: string

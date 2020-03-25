@@ -6,11 +6,9 @@
 #      type: boolean
 post:
   tags:
-    - Content Orders
+    - Content orders
   summary: Submit a content order
   operationId: PostContentOrder
-  security:
-      - api_key: []
   description: |
       Order an item or group of items to write. One order should contain at least one item.
   requestBody:
@@ -45,7 +43,7 @@ post:
       description: Server error
 get:
   tags:
-    - Content Orders
+    - Content orders
   summary: Get Order by ID
   operationId: GetContentOrder
   security:
@@ -72,11 +70,9 @@ get:
           schema:
 delete:
   tags:
-    - Content Orders
+    - Content 0rders
   summary: Delete Order by ID
   operationId: DeleteContentOrder
-  security:
-      - api_key: []
   description: |
       Cancels all available items in an order. Please keep in mind that this will not cancel items that are in another status (e.g. pending, reviewable, etc.).
   responses:

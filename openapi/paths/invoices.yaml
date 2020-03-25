@@ -3,8 +3,6 @@ get:
     - Invoices
   summary: List invoices
   operationId: GetInvoices
-  security:
-      - api_key: []
   description: |
       Retrieve all invoices on the account. Optionally filter on year.
 
@@ -19,4 +17,4 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/InvoicesSuccessResponse.yaml
+            $ref: ../components/schemas/Account/Invoices/InvoicesResponse.yaml

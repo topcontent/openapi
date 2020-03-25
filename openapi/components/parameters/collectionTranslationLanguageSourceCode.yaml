@@ -1,0 +1,7 @@
+name: source_language_code
+in: query
+description: Source language code. Submitting this will filter the response to only relevant language directions.
+schema:
+  type: string
+  minLength: 2
+  maxLength: 5

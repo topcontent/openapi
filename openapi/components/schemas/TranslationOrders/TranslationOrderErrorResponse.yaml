@@ -1,0 +1,13 @@
+type: object
+properties:
+  status:
+#    description: ""
+    type: string
+    example: "error"
+  errors:
+    type: array
+    items:
+      type: object
+      example:
+       source_language_code: '//TODO'
+       target_language_code: '//TODO'

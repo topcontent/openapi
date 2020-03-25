@@ -1,9 +1,7 @@
 type: object
 properties:
   status:
-#    description: ""
-    type: string
-    example: "ok"
+    $ref: ../../Status.yaml
   response:
     type: object
     properties:
@@ -37,7 +35,7 @@ properties:
               description: Available balance after the transaction.
               example: "10432.19"
             currency:
-              $ref: ./Currency.yaml
+              $ref: ../../CurrencyCode.yaml
             description:
               type: string
               description: The transactions's description

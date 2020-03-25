@@ -1,14 +1,12 @@
 get:
   tags:
-    - Translation Orders
+    - Translation orders
   summary: Get translation order
   operationId: GetTranslationOrder
-  security:
-      - api_key: []
   description: |
       Retrieves a group of items that were previously submitted together by their order id.
   parameters:
-    - name: order_id
+    - name: id
       in: path
       description: Order ID provided by Topcontent when submitting a new order
       required: true
@@ -20,12 +18,12 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/GetTranslationOrderSuccessResponse.yaml
+            $ref: ../components/schemas/TranslationOrders/TranslationOrderResponse.yaml
     '422':
       description: Forbidden
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/TranslationOrderErrorResponse.yaml
+            $ref: ../components/schemas/TranslationOrders/TranslationOrderErrorResponse.yaml
     '500':
       description: Server error

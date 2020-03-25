@@ -1,0 +1,17 @@
+content:
+  application/json:
+    schema:
+      type: object
+      required:
+       - comment
+      properties:
+        comment:
+          type: string
+          maxLength: 25000
+          description: The reason to the translator for sending the job back for revisions.
+          example: |
+            Still a great article but a few things need fixing:
+
+            1) Bullet points, “There are many models to choose from” and “Several  models to choose from” are repetitive.
+
+            2) This sentence was already mentioned in another paragraph: “some of them can even work as low as -35 degree celsius” (repetitive).

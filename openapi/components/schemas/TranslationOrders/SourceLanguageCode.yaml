@@ -1,0 +1,5 @@
+description: Source language code.
+type: string
+minLength: 2
+maxLength: 5
+example: en

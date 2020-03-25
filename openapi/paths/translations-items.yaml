@@ -1,27 +1,52 @@
-get:
+post:
   tags:
-    - Translation Items
-  summary: Get translation items
-  operationId: GetTranslationItems
-  security:
-      - api_key: []
+    - Translation items
+  summary: Submit translation items
+  operationId: PostTranslationOrder
   description: |
-      Retrieves a list of the most recent items filtered by the given parameters.
-  parameters:
-    - $ref: ../components/parameters/collectionTranslationItemStatus.yaml
-    - $ref: ../components/parameters/collectionCount.yaml
+      Submits an item or group of items to translate. One order should contain at least one item. On order could contain different types of items.
+  requestBody:
+    $ref: ../components/requestBodies/TranslationOrder.yaml
   responses:
     '200':
       description: Success
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/TranslationItemsSuccessResponse.yaml
+            $ref: ../components/schemas/TranslationOrders/TranslationItemsResponse.yaml
     '422':
       description: Forbidden
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/TranslationOrderErrorResponse.yaml
+            $ref: ../components/schemas/TranslationOrders/TranslationOrderErrorResponse.yaml
+    '500':
+      description: Server error
+get:
+  tags:
+    - Translation items
+  summary: Get translation items
+  operationId: GetTranslationItems
+  description: |
+      Retrieves a list of the most recent items filtered by the given parameters.
+  parameters:
+    - $ref: ../components/parameters/collectionTranslationItemIDs.yaml
+    - $ref: ../components/parameters/collectionTranslationItemOrderID.yaml
+    - $ref: ../components/parameters/collectionTranslationItemStatus.yaml
+    - $ref: ../components/parameters/collectionLimit.yaml
+    - $ref: ../components/parameters/collectionOffset.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/TranslationOrders/TranslationItemsResponse.yaml
+    '422':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/TranslationOrders/TranslationOrderErrorResponse.yaml
     '500':
       description: Server error

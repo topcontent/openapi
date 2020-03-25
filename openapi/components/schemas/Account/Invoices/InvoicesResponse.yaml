@@ -1,9 +1,7 @@
 type: object
 properties:
   status:
-#    description: ""
-    type: string
-    example: "ok"
+    $ref: ../../Status.yaml
   response:
     type: object
     properties:
@@ -59,7 +57,7 @@ properties:
               format: double
               example: "142.19"
             currency:
-              $ref: "./Currency.yaml"
+              $ref: "../../CurrencyCode.yaml"
             created_at:
               type: string
               format: date-time

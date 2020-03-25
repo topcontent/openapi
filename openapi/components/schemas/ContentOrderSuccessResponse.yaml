@@ -37,10 +37,11 @@ properties:
         example: 5
       credits_used:
         type: number
-        description: "//TODO"
+        format: double
+        description: The total amount of the order.
         example: 120.50
       currency:
-        $ref: "./Currency.yaml"
+        $ref: "./CurrencyCode.yaml"
 #    description: "An array of Items Payloads. Please see the item payloads information for full details of the required parameters."
 #    minItems: 1
 #    items:

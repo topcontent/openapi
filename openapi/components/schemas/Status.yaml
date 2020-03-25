@@ -1,0 +1,6 @@
+type: string
+description: |
+  Status of the reply. Possible values:
+    - ```ok``` - successful request;
+    - ```error``` - failed request.
+example: "ok"

@@ -1,6 +1,6 @@
 content:
   application/json:
     schema:
-      $ref: ../schemas/TranslationOrder.yaml
+      $ref: ../schemas/TranslationOrders/TranslationOrder.yaml
 description: Translation order resource
 required: true

@@ -33,7 +33,7 @@ tags:
       //TODO
       ## Request corrections for the item
       //TODO
-  - name: Sandbox Testing
+  - name: Sandbox testing
     description: |
       ## The test area for your API code
       What’s different about the sandbox?
@@ -50,7 +50,7 @@ tags:
       - Test your app, using http://api.sandbox.topcontent.com/v2/ as the base call URL
 
       Ready to deploy? Head over to the live Topcontent site. Create a full client account, generate a set of live API keys - and remember to paste them into your app.
-  - name: Best Practices
+  - name: Best practices
     description: |
       The following checklist contains practices critical for a healthy integration. Make sure your integration has all of them.
       ## Follow the Topcontent API workflow
@@ -126,18 +126,25 @@ tags:
       429 | Too many attempts.
       500 | Request failed due to an internal error in Topcontent.
       503 | Topcontent offline for maintenance.
-  - name: Translation Orders
+  - name: Translation orders
     description: |
       This describes the endpoints that deal with translation orders on the Topcontent API.
-  - name: Translation Items
+  - name: Translation items
     description: |
       This describes the endpoints that deal with translation items on the Topcontent API.
-  - name: Translation Qualities
-    description: |
-      This describes the endpoints that deal with translation qualities on the Topcontent API.
-  - name: Translation Language Directions
+  - name: Translation language directions
     description: |
       This describes the endpoints that deal with translation language directions on the Topcontent API.
+  - name: Review translation item
+    description: |
+      This describes the endpoints that deal with translation reviewable process on the Topcontent API.
+  - name: Translation services
+    description: |
+      This describes the endpoints that deal with Translation Service on the Topcontent API.
+
+
+
+
   - name: Content Orders
     description: |
       This describes the endpoints that deal with content orders on the Topcontent API.
@@ -162,8 +169,8 @@ x-tagGroups:
   - name: Getting started
     tags:
       - Introduction
-      - Sandbox Testing
-      - Best Practices
+      - Sandbox testing
+      - Best Ppractices
   - name: API Details
     tags:
       - Overview
@@ -172,34 +179,38 @@ x-tagGroups:
       - Errors
   - name: Translations
     tags:
-      - Translation Orders
-      - Translation Items
-      - Translation Qualities
-      - Translation Language Directions
+      - Translation orders
+      - Translation items
+      - Review translation item
+      - Translation services
   - name: Content
     tags:
-      - Content Orders
-      - Content Items
-      - Content Qualities
-      - Content Languages
+      - Content orders
+      - Content items
+      - Content languages
   - name: Account
     tags:
       - Invoices
       - Balance
+  - name: Services
+    tags:
+      - Languages
 servers:
   - url: 'https://app.topcontent.com/api/v2'
 paths:
-  '/translations/orders':
-    $ref: 'paths/translations-orders.yaml'
-  '/translations/orders/{order_id}':
-      $ref: 'paths/translations-order.yaml'
+  '/translations/orders/{id}':
+      $ref: 'paths/translations-order@id.yaml'
   '/translations/items':
     $ref: 'paths/translations-items.yaml'
-  '/translations/items/{item_ids}':
-      $ref: 'paths/translations-items-by-ids.yaml'
+  '/translations/items/{id}/approve':
+    $ref: 'paths/translations-items@id-approve.yaml'
+  '/translations/items/{id}/revise':
+    $ref: 'paths/translations-items@id-revise.yaml'
+  '/translations/language-directions':
+    $ref: 'paths/translations-language-directions.yaml'
 
-  '/content/orders':
-    $ref: 'paths/content-orders.yaml'
+#  '/content/orders':
+#    $ref: 'paths/content-orders.yaml'
 
   '/invoices':
       $ref: 'paths/invoices.yaml'
@@ -207,10 +218,4 @@ paths:
         $ref: 'paths/balance.yaml'
   '/balance/transactions':
         $ref: 'paths/balance-transactions.yaml'
-#  account:
-#    $ref: 'paths/account.yaml'
-#  '/users/{username}':
-#    $ref: 'paths/users@{username}.yaml'
-#  /echo:
-#    $ref: paths/echo.yaml
 #components:

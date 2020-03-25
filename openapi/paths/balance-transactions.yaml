@@ -9,8 +9,6 @@ get:
     - Balance
   summary: List balance transactions
   operationId: GetBalanceTransactions
-  security:
-      - api_key: []
   description: |
       Retrieve balance transactions on the account. The results are paginated.
   parameters:
@@ -23,6 +21,6 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/BalanceTransactionsSuccessResponse.yaml
+            $ref: ../components/schemas/Account/Balance/BalanceTransactionsResponse.yaml
     '500':
       description: Server error

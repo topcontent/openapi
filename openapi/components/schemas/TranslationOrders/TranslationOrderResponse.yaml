@@ -1,9 +1,7 @@
 type: object
 properties:
   status:
-#    description: ""
-    type: string
-    example: "ok"
+    $ref: ../Status.yaml
   response:
     type: object
     properties:
@@ -21,7 +19,7 @@ properties:
         description: The total amount of the order.
         example: 120.50
       currency:
-        $ref: "./Currency.yaml"
+        $ref: "../CurrencyCode.yaml"
       items:
         type: object
 #        description: //TODO
