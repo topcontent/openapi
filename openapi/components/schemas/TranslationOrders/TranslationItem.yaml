@@ -49,8 +49,9 @@ properties:
     $ref: ./TargetLanguageCode.yaml
   quality:
     $ref: ./Quality.yaml
-  topic_id:
-    description: ID of the ordering topic.
+  purpose:
+    description: |
+      Describe the purpose of the translation exampples: ```Personal```, ```Business```, ```Online```, ```Web content```, ```App localization``` or ```Other```...
     type: integer
     example: 2
   slug:
@@ -68,47 +69,17 @@ properties:
     readOnly: true
     example: "Få de bästa produktbeskrivningarna skrivna av Topcontent"
   tone_of_voice:
-    description: |
-      Describing the tone of the text examples: ```Informal```, ```Friendly```, ```Business```, ```Formal```. Those 4 are recommended. Those will give best results.
-    type: string
-    writeOnly: true
-    maxLength: 150
-    example: Business
+    $ref: ../ToneOfVoice.yaml
   instructions:
-    description: Instructions for contributor to consider when writing. It is strongly encouraged to provide a detailed instructions for the contributor.
-    type: string
-    maxLength: 1000
-    writeOnly: true
-    example: 'Translate texts simply, clearly and correctly. Please pay close attention to the tone of voice and context - do not over-complicate the translation either.'
+    $ref: ../Instructions.yaml
   auto_approve:
-    description: Whether to automatically approve an item after they’ve been finished. Default is false If false, completed item will await review and approval by customer for 96 hours.
-    type: boolean
-    example: false
-    default: fasle
+    $ref: ../AutoApprove.yaml
   max_chars:
     description: Expresses character limit of translation. Should always be greater than 0.
     type: integer
     maxLength: 1
     example: 300
   custom_data:
-    description: Up to 1K of storage for client-specific data that may be helpful for you to have mapped to this item.
-    type: string
-    example: "{request_id: 87353}"
+    $ref: ../CustomData.yaml
   return_options:
-    description: Contains array. Please see the return options payloads page for full details of the parameters.
-    type: object
-    properties:
-      integration:
-        type: string
-        enum:
-          - 'callback_url'
-      url:
-        type: string
-        format: URL
-        description: Callback URL should not contain authentication information.
-        maxLength: 255
-        example: "https://mysite.com/receive_topcontent_items"
-      auto_send:
-        type: boolean
-        description: //TODO
-        default: false
+    $ref: ../ReturnOptions.yaml

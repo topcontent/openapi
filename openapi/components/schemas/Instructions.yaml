@@ -1,0 +1,5 @@
+description: Instructions for contributor to consider when writing. It is strongly encouraged to provide a detailed instructions for the contributor.
+type: string
+maxLength: 1000
+writeOnly: true
+example: 'Translate texts simply, clearly and correctly. Please pay close attention to the tone of voice and context - do not over-complicate the translation either.'

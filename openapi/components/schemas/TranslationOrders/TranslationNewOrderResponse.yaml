@@ -30,8 +30,6 @@ properties:
           items_pending:
             type: array
             description: The items that are being translated, but has not finished.
-            example:
-              - 567345
           items_revising:
             type: array
             description: The items that the customer has requested that some changes are made to the translation.
@@ -41,3 +39,9 @@ properties:
           items_approved:
             type: array
             description: The items that have been approved by the customer. The completed translation is available.
+        example:
+          items_draft: [11123]
+          items_pending: []
+          items_revising: []
+          items_reviewable: []
+          items_approved: []

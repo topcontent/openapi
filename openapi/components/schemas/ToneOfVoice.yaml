@@ -1,0 +1,6 @@
+description: |
+  Describing the tone of the text examples: ```Informal```, ```Friendly```, ```Business```, ```Formal```. Those 4 are recommended. Those will give best results.
+type: string
+writeOnly: true
+maxLength: 150
+example: Business

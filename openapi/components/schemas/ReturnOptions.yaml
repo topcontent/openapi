@@ -1,0 +1,17 @@
+description: Contains array. Please see the return options payloads page for full details of the parameters.
+type: object
+properties:
+  integration:
+    type: string
+    enum:
+      - 'callback_url'
+  url:
+    type: string
+    format: URL
+    description: Callback URL should not contain authentication information.
+    maxLength: 255
+    example: "https://mysite.com/receive_topcontent_items"
+  auto_send:
+    type: boolean
+    description: //TODO
+    default: false
