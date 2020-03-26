@@ -1,0 +1,28 @@
+type: object
+properties:
+  status:
+    $ref: ../Status.yaml
+  response:
+    type: object
+    properties:
+      items_count:
+        type: integer
+        description: The total amount of the returned items.
+        example: 1
+      languages:
+        type: array
+        description: List of languages.
+        items:
+          type: object
+          properties:
+            language_code:
+              $ref: ../LanguageCode.yaml
+            quality:
+              $ref: ./ContentQuality.yaml
+            price:
+              type: number
+              format: double
+              description: //TODO
+              example: 0.15
+            currency:
+              $ref: ../CurrencyCode.yaml

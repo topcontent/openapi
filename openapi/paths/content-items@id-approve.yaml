@@ -1,8 +1,8 @@
 put:
   tags:
-    - Translation items
-  summary: Approve translation item
-  operationId: ApproveTranslationItem
+    - Content items
+  summary: Approve content item
+  operationId: ApproveContentItem
   description: |
       Approve an item.
   requestBody:

@@ -1,0 +1,29 @@
+get:
+  tags:
+    - Content orders
+  summary: Get content order
+  operationId: GetContentOrder
+  description: |
+      Retrieves a group of items that were previously submitted together by their order id.
+  parameters:
+    - name: id
+      in: path
+      description: Order ID provided by Topcontent when submitting a new order
+      required: true
+      schema:
+        type: integer
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ContentOrders/ContentOrderResponse.yaml
+    '422':
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ContentOrders/ContentOrderErrorResponse.yaml
+    '500':
+      description: Server error

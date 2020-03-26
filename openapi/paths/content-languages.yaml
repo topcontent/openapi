@@ -1,0 +1,24 @@
+get:
+  tags:
+    - Content services
+  summary: Languages
+  operationId: GetContentLanguages
+  description: |
+      Returns supported content languages, qualities, and credit prices.
+  parameters:
+    - $ref: ../components/parameters/collectionLanguageCode.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/ContentOrders/LanguagesResponse.yaml
+#    '422':
+#      description: Forbidden
+#      content:
+#        application/json:
+#          schema:
+#            $ref: ../components/schemas/LanguagesErrorResponse.yaml
+    '500':
+      description: Server error

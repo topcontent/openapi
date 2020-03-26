@@ -254,16 +254,16 @@ paths:
 
   '/content/orders':
     $ref: 'paths/content-orders.yaml'
-#  '/content/orders/{id}':
-#    $ref: 'paths/content-order@id.yaml'
-#  '/content/items':
-#    $ref: 'paths/content-items.yaml'
-#  '/content/items/{id}/approve':
-#    $ref: 'paths/content-items@id-approve.yaml'
-#  '/content/items/{id}/revise':
-#    $ref: 'paths/content-items@id-revise.yaml'
-#  '/content/languages':
-#    $ref: 'paths/content-languages.yaml'
+  '/content/orders/{id}':
+    $ref: 'paths/content-order@id.yaml'
+  '/content/items':
+    $ref: 'paths/content-items.yaml'
+  '/content/items/{id}/approve':
+    $ref: 'paths/content-items@id-approve.yaml'
+  '/content/items/{id}/revise':
+    $ref: 'paths/content-items@id-revise.yaml'
+  '/content/languages':
+    $ref: 'paths/content-languages.yaml'
 
   '/invoices':
       $ref: 'paths/invoices.yaml'

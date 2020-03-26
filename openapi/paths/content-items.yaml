@@ -1,8 +1,8 @@
 get:
   tags:
-    - Translation items
-  summary: Get translation items
-  operationId: GetTranslationItems
+    - Content items
+  summary: Get content items
+  operationId: GetContentItems
   description: |
       Retrieves a list of the most recent items filtered by the given parameters.
   parameters:

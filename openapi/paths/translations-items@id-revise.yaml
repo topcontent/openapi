@@ -6,14 +6,14 @@ put:
   description: |
       Returns the item back for corrections to the translator for revisions.
   requestBody:
-    $ref: ../components/requestBodies/ReviseTranslationItem.yaml
+    $ref: ../components/requestBodies/ReviseItem.yaml
   responses:
     '200':
       description: Success
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/TranslationOrders/ReviewResponse.yaml
+            $ref: ../components/schemas/ReviewResponse.yaml
     '422':
       description: Forbidden
       content:

@@ -1,12 +1,12 @@
 put:
   tags:
-    - Translation items
-  summary: Approve translation item
-  operationId: ApproveTranslationItem
+    - Content items
+  summary: Revise content item
+  operationId: ReviseContentItem
   description: |
-      Approve an item.
+      Returns the item back for corrections to the contributor for revisions.
   requestBody:
-    $ref: ../components/requestBodies/ApproveItem.yaml
+    $ref: ../components/requestBodies/ReviseItem.yaml
   responses:
     '200':
       description: Success

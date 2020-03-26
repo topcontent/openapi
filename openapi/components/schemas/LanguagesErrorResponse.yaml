@@ -15,5 +15,3 @@ properties:
       example:
         language_code:
           - "The language_code is required."
-        quality:
-          - "The quality is required."
