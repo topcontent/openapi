@@ -1,0 +1,16 @@
+get:
+  tags:
+    - Languages
+  summary: Get Languages
+  operationId: GetLanguages
+  description: |
+      Returns a list of supported languages and their language codes.
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Service/ServiceLanguagesResponse.yaml
+    '500':
+      description: Server error

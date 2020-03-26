@@ -25,6 +25,6 @@ properties:
               type: number
               format: double
               description: //TODP
-              example: 0.01
+              example: 0.06
             currency:
               $ref: ../CurrencyCode.yaml

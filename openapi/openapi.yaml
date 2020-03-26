@@ -266,9 +266,12 @@ paths:
     $ref: 'paths/content-languages.yaml'
 
   '/invoices':
-      $ref: 'paths/invoices.yaml'
+    $ref: 'paths/invoices.yaml'
   '/balance':
-        $ref: 'paths/balance.yaml'
+    $ref: 'paths/balance.yaml'
   '/balance/transactions':
-        $ref: 'paths/balance-transactions.yaml'
+    $ref: 'paths/balance-transactions.yaml'
+
+  '/service/languages':
+    $ref: 'paths/service-languages.yaml'
 #components:

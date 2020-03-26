@@ -1,7 +1,7 @@
 get:
   tags:
     - Content services
-  summary: Languages
+  summary: Content languages
   operationId: GetContentLanguages
   description: |
       Returns supported content languages, qualities, and credit prices.
@@ -13,7 +13,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ContentOrders/LanguagesResponse.yaml
+            $ref: ../components/schemas/ContentOrders/ContentLanguagesResponse.yaml
 #    '422':
 #      description: Forbidden
 #      content:
