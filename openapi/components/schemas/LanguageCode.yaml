@@ -1,0 +1,5 @@
+description: Language code.
+type: string
+minLength: 2
+maxLength: 5
+example: sv

@@ -20,7 +20,7 @@ properties:
             target_language_code:
               $ref: ./TargetLanguageCode.yaml
             quality:
-              $ref: ./Quality.yaml
+              $ref: ./TranslationQuality.yaml
             price:
               type: number
               format: double

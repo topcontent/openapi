@@ -1,0 +1,15 @@
+items_draft:
+  type: array
+  description: The items that are saved as drafts and are not currently visible to our contributors.
+items_in_production:
+  type: array
+  description: The items that are being worked, but has not finished.
+items_revising:
+  type: array
+  description: The items that the customer has requested that some changes are made to the contributors. //TODO rephrase
+items_reviewable:
+  type: array
+  description: The items that have been finished by our team but have not been approved by the customer yet.
+items_approved:
+  type: array
+  description: The items that have been approved by the customer.

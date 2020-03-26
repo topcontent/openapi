@@ -23,14 +23,14 @@ properties:
     description: The total amount of the order.
     example: 1.08
   currency:
-    $ref: "../CurrencyCode.yaml"
+    $ref: ../CurrencyCode.yaml
   status:
     type: string
     readOnly: true
     description: |
       One of the following values:
        - ```draft```
-       - ```pending```
+       - ```in_production```
        - ```revising```
        - ```reviewable```
        - ```approved```
@@ -48,12 +48,13 @@ properties:
   target_language_code:
     $ref: ./TargetLanguageCode.yaml
   quality:
-    $ref: ./Quality.yaml
+    $ref: ./TranslationQuality.yaml
   purpose:
     description: |
       Describe the purpose of the translation exampples: ```Personal```, ```Business```, ```Online```, ```Web content```, ```App localization``` or ```Other```...
-    type: integer
-    example: 2
+    type: string
+    maxLength: 100
+    example: App localization
   slug:
     description: Item title. For internally storing, can be generic.
     type: string

@@ -3,7 +3,7 @@ in: query
 description: |
   Retrieve a list of items with the provided status. One of the following values:
    - ```draft```
-   - ```pending```
+   - ```in_production```
    - ```revising```
    - ```reviewable```
    - ```approved```

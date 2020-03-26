@@ -24,24 +24,10 @@ properties:
         type: object
 #        description: //TODO
         properties:
-          items_draft:
-            type: array
-            description: The items that are saved as drafts and are not currently visible to our translators.
-          items_pending:
-            type: array
-            description: The items that are being translated, but has not finished.
-          items_revising:
-            type: array
-            description: The items that the customer has requested that some changes are made to the translation.
-          items_reviewable:
-            type: array
-            description: The items that have been finished by our team but have not been approved by the customer yet. The completed translation is available.
-          items_approved:
-            type: array
-            description: The items that have been approved by the customer. The completed translation is available.
+          $ref: ../OrderItems.yaml
         example:
           items_draft: []
-          items_pending: [567345]
+          items_in_production: [567345]
           items_revising: [567347, 567348]
           items_reviewable: [567349]
           items_approved: [567350, 567351, 567352]

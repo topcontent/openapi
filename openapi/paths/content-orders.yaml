@@ -1,83 +1,109 @@
-#parameters:
-#  - name: pretty_print
-#    in: query
-#    description: Pretty print response
-#    schema:
-#      type: boolean
 post:
   tags:
     - Content orders
-  summary: Submit a content order
+  summary: Submit content order
   operationId: PostContentOrder
   description: |
       Order an item or group of items to write. One order should contain at least one item.
+
+      >**Note:** All items in one order should have the same ```language_code``` and ```quality``` parametrs.
   requestBody:
     $ref: ../components/requestBodies/ContentOrder.yaml
-#  parameters:
-#    - name: username
-#      in: path
-#      description: The name that needs to be fetched
-#      required: true
-#      schema:
-#        type: string
-#    - name: with_email
-#      in: query
-#      description: Filter users without email
-#      schema:
-#        type: boolean
-
   responses:
     '200':
       description: Success
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ContentOrderSuccessResponse.yaml
+            $ref: ../components/schemas/ContentOrders/ContentNewOrderResponse.yaml
     '422':
       description: Forbidden
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/ContentOrderErrorResponse.yaml
+            $ref: ../components/schemas/ContentOrders/ContentOrderErrorResponse.yaml
     '500':
       description: Server error
-get:
-  tags:
-    - Content orders
-  summary: Get Order by ID
-  operationId: GetContentOrder
-  security:
-      - api_key: []
-  description: |
-      Retrieves a group of items that were previously submitted together by their order id.
-#  parameters:
-#    - name: username
-#      in: path
-#      description: The name that needs to be fetched
-#      required: true
-#      schema:
-#        type: string
-#    - name: with_email
-#      in: query
-#      description: Filter users without email
-#      schema:
-#        type: boolean
-  responses:
-    '200':
-      description: Success
-      content:
-        application/json:
-          schema:
-delete:
-  tags:
-    - Content 0rders
-  summary: Delete Order by ID
-  operationId: DeleteContentOrder
-  description: |
-      Cancels all available items in an order. Please keep in mind that this will not cancel items that are in another status (e.g. pending, reviewable, etc.).
-  responses:
-    '200':
-      description: Success
-      content:
-        application/json:
-          schema:
+##parameters:
+##  - name: pretty_print
+##    in: query
+##    description: Pretty print response
+##    schema:
+##      type: boolean
+#post:
+#  tags:
+#    - Content orders
+#  summary: Submit a content order
+#  operationId: PostContentOrder
+#  description: |
+#      Order an item or group of items to write. One order should contain at least one item.
+#  requestBody:
+#    $ref: ../components/requestBodies/ContentOrder.yaml
+##  parameters:
+##    - name: username
+##      in: path
+##      description: The name that needs to be fetched
+##      required: true
+##      schema:
+##        type: string
+##    - name: with_email
+##      in: query
+##      description: Filter users without email
+##      schema:
+##        type: boolean
+#
+#  responses:
+#    '200':
+#      description: Success
+#      content:
+#        application/json:
+#          schema:
+#            $ref: ../components/schemas/ContentOrderSuccessResponse.yaml
+#    '422':
+#      description: Forbidden
+#      content:
+#        application/json:
+#          schema:
+#            $ref: ../components/schemas/ContentOrderErrorResponse.yaml
+#    '500':
+#      description: Server error
+#get:
+#  tags:
+#    - Content orders
+#  summary: Get Order by ID
+#  operationId: GetContentOrder
+#  security:
+#      - api_key: []
+#  description: |
+#      Retrieves a group of items that were previously submitted together by their order id.
+##  parameters:
+##    - name: username
+##      in: path
+##      description: The name that needs to be fetched
+##      required: true
+##      schema:
+##        type: string
+##    - name: with_email
+##      in: query
+##      description: Filter users without email
+##      schema:
+##        type: boolean
+#  responses:
+#    '200':
+#      description: Success
+#      content:
+#        application/json:
+#          schema:
+#delete:
+#  tags:
+#    - Content 0rders
+#  summary: Delete Order by ID
+#  operationId: DeleteContentOrder
+#  description: |
+#      Cancels all available items in an order. Please keep in mind that this will not cancel items that are in another status (e.g. pending, reviewable, etc.).
+#  responses:
+#    '200':
+#      description: Success
+#      content:
+#        application/json:
+#          schema:

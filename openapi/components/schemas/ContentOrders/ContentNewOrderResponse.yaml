@@ -17,9 +17,9 @@ properties:
         type: number
         format: double
         description: The total amount of the order.
-        example: 1.08
+        example: 120
       currency:
-        $ref: ../CurrencyCode.yaml
+        $ref: "../CurrencyCode.yaml"
       items:
         type: object
 #        description: //TODO

@@ -1,0 +1,128 @@
+type: array
+description: "An array of Items Payloads. Please see the item payloads information for full details of the required parameters."
+minItems: 1
+items:
+  type: object
+  required:
+    - slug
+    - language_code
+    - quality
+    - h1
+    - length
+    - template_id
+  properties:
+    slug:
+      description: Item title. For internally storing, can be generic.
+      type: string
+      maxLength: 255
+      example: "Product description"
+    language_code:
+      $ref: ../LanguageCode.yaml
+    quality:
+      $ref: ./ContentQuality.yaml
+    purpose:
+      description: |
+        Describe the purpose of the text exampples: ```Personal```, ```Business```, ```Online```, ```Web content``` or ```Other```...
+      type: string
+      maxLength: 100
+      example: Web content
+    h1:
+      description: This is the H1 HTML tag for your article, it cannot be changed by the writer.
+      type: string
+      maxLength: 255
+      example: Good holiday weather
+    min_length:
+      type: integer
+      description: Amount of the miminum words for the article. //TODO rephrase
+      minimum: 5
+      maximum: 5000
+      example: 800
+    template_id:
+      description: |
+        You can specify how many paragraphs and headers the article will have. Learn more about content structure <a href="#">here</a>.
+      type: string
+      example: gh2J34kL
+    meta_tags:
+      description: <a hrref="#">Meta tags</a> are invisible tags that provide data about your page to search engines and website visitors.
+      type: boolean
+      example: true
+      default: false
+    focus_keyword:
+      description: Use focus keyword of two or three words combined with different match types for better results.
+      type: array
+      maxItems: 1
+      items:
+        type: object
+        properties:
+          keyword:
+            type: string
+            maxLength: 255
+          match:
+            type: string
+            description: |
+              Posibble values:
+              - ```exact``` - //TODO
+              - ```near``` - //TODO
+        example:
+         keyword: 'Jesica Smith'
+         match: 'exact'
+    sub_keywords:
+      description: Use keywords of two or three words combined with different match types for better results.
+      type: array
+      items:
+        type: object
+        properties:
+          keyword:
+            type: string
+            maxLength: 255
+          match:
+            type: string
+            description: |
+              Posibble values:
+              - ```exact``` - //TODO
+              - ```near``` - //TODO
+        example:
+         keyword: 'Jesica Smith'
+         match: 'near'
+    source_urls:
+      description: If you have a source of information or a site you want to direct the writer's attention to.
+      type: array
+      items:
+        type: string
+        format: URL
+        example:
+          - 'https://www.wikipedia.org/'
+          - 'https://en.wikipedia.org/wiki/Content'
+          - 'https://en.wikipedia.org/wiki/Product_description'
+    target_url:
+      description: Let the writer know where this particular article will be published so that they can better understand what tone to use.
+      type: string
+      format: URL
+      maxLength: 255
+      example: 'http://example.com/'
+    links:
+      description: If you want the writer to include links to specific webpage you can use this element to specify that.
+      type: array
+      items:
+        type: object
+        properties:
+          anchor_text:
+            type: string
+            maxLength: 50
+          url:
+            type: string
+            format: URL
+            maxLength: 255
+        example:
+         anchor: Anchor text
+         url: "https://en.wikipedia.org/wiki/Anchor_text"
+    tone_of_voice:
+      $ref: ../ToneOfVoice.yaml
+    instructions:
+      $ref: ../Instructions.yaml
+    auto_approve:
+      $ref: ../AutoApprove.yaml
+    custom_data:
+      $ref: ../CustomData.yaml
+    return_options:
+      $ref: ../ReturnOptions.yaml

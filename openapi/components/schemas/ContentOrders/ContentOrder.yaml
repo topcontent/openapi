@@ -1,0 +1,22 @@
+type: object
+required:
+  - items
+properties:
+#  test:
+#    description: Name of the order.
+#    type: string
+#    maxLength: 255
+#    nullable: true
+#    pattern: '^[0-9]{6}$'
+#    example: Benjamin
+#    minItems: 1
+#    enum:
+#     - 'one'
+#     - 'two'
+#  order_name:
+#    description: Name of the order.
+#    type: string
+#    maxLength: 255
+#    example: Translate EN to SV
+  items:
+    $ref: ./ContentItem.yaml
