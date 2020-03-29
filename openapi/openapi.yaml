@@ -12,14 +12,45 @@ info:
 #  description: Find out how to create a GitHub repo for your OpenAPI definition.
 #  url: 'https://github.com/Rebilly/generator-openapi-repo'
 tags:
-  - name: Introduction
+  - name: Overview
     description: |
-      Welcome to the reference for the Topcontent REST API!
-      ## Flow
-      The Topcontent API allows you to connect your app to Topcontent, and order human translation and content without needing to use our self-service. Because human translation and writing is not instant, our API is asynchronous. This means that you need to allow time for contributors to complete their work.
-      ## What happens behind the scenes
-      Once an order has been submitted, Topcontent contributorrs receive a notification of new work available and work on tasks on a first-come, first-serve basis. They work on the tasks within our system’s interface.
+      The Topcontent API allows you to connect your app to Topcontent, and order human translation and content without needing to use our self-service.
+      Topcontent and your website or app back-end will communicate by sending HTTP requests back and forth.
+
+      This page provides an overview of the Topcontent API. The topics in the chapter deal with a number of specific aspects of the API. We recommend to read these topics entirely.
+
+      If you have any questions about integrating our API, please <a targeet="_blank" href="https://topcontent.com/contact-us/">contact us</a>. We’re happy to help!
+
+      ## REST API
+
+      The API implements a **Representational state transfer** (REST) architecture. Sounds technical, but it’s really quite easy. It mainly breaks down to HTTP-methods `GET`, `PATCH`, `POST` and `DELETE` matching the operations to **read**, **update**, **create** and **delete**.
+
+      REST also implies a nice and clean structure for URLs or endpoints. This means you can reach any part of the Topcontent API on `https://api.topcontent.com/v2/` adding the name of the resource you want to interact with.
+
+      ## Headers
+      Make sure you have the following content type headers are set on every request:
+
+      ```Accept: application/json``` ```Content-Type: application/json```
+
+      ## Encoding
+      Topcontent expects all data to be UTF-8 encoded and will respond with UTF-8 encoded data. Make sure you encode your data in UTF-8 to avoid issues.
+
+      ## Throttling
+      To ensure fair usage in our API, we put limits on the number of requests per originating IP address.
+
+      //TODO
+
+      Requests are tracked at millisecond granularity. For example, a 100 requests/second corresponds to 10 requests every 100 milliseconds.
+
+      ## Quality levels supported through the API
+
+      Currently, our API supports the ```standard``` and ```business``` quality levels for translation orders and ```raw```, ```standard``` and ```business``` for content orders.
+
+      Please see our <a target="_blind" href="https://topcontent.com/pricing/topcontent-quality-levels/">Quality Levels</a> page for more information.
+  - name: Workflows
+    description: |
       ## Submitting an order
+
       Submitting an order to Topcontent is a straightforward process.
       First you’ll need to identify the content you want to have translated or written and build an item payload that includes all nessesarly inforrmation.
       This could be 1 large piece of text, such as an email or a blog post, or this could be several smaller content strings.
@@ -41,6 +72,7 @@ tags:
       Once an order has been placed, you will receive an “order_id” back.
 
       ## Checking on the status of the order
+
       Once an item has been sent to Topcontent, it can go through a few different statuses.
       Initially all items that are sent are first put into a queuing system. //TODO drafts.
       This allows us to accept very large payloads from any number of users 24/7. In the background, we’ll begin processing these items and making them “available” to our contributors.
@@ -52,22 +84,14 @@ tags:
       At anytime you may get an update on the items in the order by sending a GET request to the ```/translations/orders/{id}``` for translation items and ```/content/orders/{id}``` for content orders end point.
 
       ## Getting the items back
+
       Typically Topcontent will send the completed items to your system as out team complete them.
       However, if you’d like to poll our system for an update, that can be best done by passing a comma separated list of item ids to ```GET /translations/items?ids=45646,45647,45648```.
 
       The best way to get a list of completed item IDs in an order is to make a request to the ```GET /translations/orders/{id}``` end point and check the “items_approved” array.
 
-      ## Escaping content for translation
-      Sometimes you might want to include text within an item that you do not need to be translated.
-      To exclude text from the word count of a item, and indicate to the contributor that it does not need to be translated, you can wrap text within triple square brackets [[[like this]]].
-      Please remember to close your triple brackets, and try to avoid having large areas of excluded text - it’s normally better to break the item into parts instead.
+      ## Review the item
 
-      ## Quality levels supported through the API
-      Currently, our API supports the ```standard``` and ```business``` quality levels for translation orders and ```raw```, ```standard``` and ```business``` for content orders.
-
-      Please see our <a target="_blind" href="https://topcontent.com/pricing/topcontent-quality-levels/">Quality Levels</a> page for more information.
-
-      ## Review workflows
       Once an item is completed, we allow for 96 hours for review. Sending a request to the ```PUT /translations/items/{id}/approve``` endpoint you’re able to update the status to “approved”.
 
       If you prefer not to manually approve items, or your system does not have the capability, you can simply add the ```auto_approve=true``` parameter to your item requests.
@@ -75,11 +99,18 @@ tags:
       Please note that by using the ```auto_approve``` parameter you waive your right to request corrections.
 
       ## Request corrections for the item
+
       If an item requires corrections, you can request them using the ``` PUT /translations/items/{id}/revise``` call, and leave a comment for a contributor.
       Please be as descriptive as possible with your comment when you request a correction.
 
       This workflow can be useful when you want to add specific automated quality checks on the content.
+  - name: Authentication
+    description: |
+      In order to use the API, you should authenticate your request by including your API Key as a bearer token value in an HTTP header:
 
+      ```Authorization: Bearer API_KEY_HERE```
+
+      You must first <a href="https://app.topcontent.com/signup" target="_blank">create a client</a> in the Topcontent UI. To do this, you must be an owner of your Topcontent team. This is a one-time operation. You will be provided with an API Key in the <a href="https://app.topcontent.com/settings/api" target="_blank">API & Integrations</a> section.
   - name: Sandbox testing
     description: |
       ## The test area for your API code
@@ -97,6 +128,30 @@ tags:
       - Test your app, using http://api.sandbox.topcontent.com/v2/ as the base call URL
 
       Ready to deploy? Head over to the live Topcontent site. Create a full client account, generate a set of live API keys - and remember to paste them into your app.
+  - name: Handling errors
+    description: |
+      Topcontent uses conventional HTTP response codes to indicate the success or failure of an API request. The table below contains a summary of the typical response codes:
+
+      Code | Description
+      --------- | -------
+      200 | Everything is ok.
+      400 | Valid data was given but the request has failed.
+      401 | No valid API Key was given.
+      404 | The request resource could not be found.
+      422 | The payload has missing required parameters or invalid data was given.
+      429 | Too many attempts.
+      500 | Request failed due to an internal error in Topcontent.
+      503 | Topcontent offline for maintenance.
+  - name: Webhooks
+    description: |
+      Webhooks are used to process real-time status updates, for example when an item is reviewable.
+      When submitting an order, you can set “webhook_url” for each item in the order.
+      Topcontent will post any updates about the item as they happen which makes it the most efficient way to sync your system with Topcontent.
+
+      Callback notifications are sent when:
+      - An item is ready for review
+      - An item has been approved automatically
+      - An item is manually approved via our Topcontent self-service interface
   - name: Best practices
     description: |
       The following checklist contains practices critical for a healthy integration. Make sure your integration has all of them.
@@ -126,53 +181,6 @@ tags:
       See our section for [review workflows](#) for more information.
 
       Unless you are working with trusted or preferred contributors, it is best to use ```auto_approve = 0```. By getting the item approved, you acknowledge that you are happy with the result, and thus forfeit your right to request for corrections.
-  - name: Overview
-    description: |
-      In order to use the API, you should authenticate your request by including your API key in each request as a GET or POST as a 'api_key' param.
-      ## Headers
-      Make sure you have the following content type headers are set on every request:
-
-      ```Accept: application/json``` ```Content-Type: application/json```
-      ## Response Formats
-      All API responses will contain at least 1 and possibly 2 key-value pairs. The first key’s name will depend on whether the call was successful or not. The second key name for a successful call with an expected payload will be “response”, i.e. ```{“status” : “ok”, “response” : ”...”}``` and a failed response will have second key name as “errors”, i.e. ```{“status” : “error”, “errors” : {“code” : "..."}}```
-      ## Encoding
-      Topcontent expects all data to be UTF-8 encoded and will respond with UTF-8 encoded data. Make sure you encode your data in UTF-8 to avoid issues.
-      ## Throttling
-      To ensure fair usage in our API, we put limits on the number of requests per originating IP address.
-
-      //TODO
-
-      Requests are tracked at millisecond granularity. For example, a 100 requests/second corresponds to 10 requests every 100 milliseconds.
-  - name: Authentication
-    description: |
-      In order to use the API, you should authenticate your request by including your API Key as a bearer token value in an HTTP header:
-
-      ```Authorization: Bearer API_KEY_HERE```
-
-      You must first <a href="https://app.topcontent.com/signup" target="_blank">create a client</a> in the Topcontent UI. To do this, you must be an owner of your Topcontent team. This is a one-time operation. You will be provided with an API Key in the <a href="https://app.topcontent.com/settings/api" target="_blank">API & Integrations</a> section.
-  - name: Callback URLs
-    description: |
-      When submitting an order, you can set “callback_url” for each item in the order. Topcontent will post any updates about the item as they happen which makes it the most efficient way to sync your system with Topcontent.
-
-      Callback notifications are sent when:
-      - An item is ready for review
-      - An item has been approved automatically
-      - An item is manually approved via our Topcontent self-service interface
-
-  - name: Errors
-    description: |
-      Topcontent uses conventional HTTP response codes to indicate the success or failure of an API request. The table below contains a summary of the typical response codes:
-
-      Code | Description
-      --------- | -------
-      200 | Everything is ok.
-      400 | Valid data was given but the request has failed.
-      401 | No valid API Key was given.
-      404 | The request resource could not be found.
-      422 | The payload has missing required parameters or invalid data was given.
-      429 | Too many attempts.
-      500 | Request failed due to an internal error in Topcontent.
-      503 | Topcontent offline for maintenance.
   - name: Translation orders
     description: |
       This describes the endpoints that deal with translation orders on the Topcontent API.
@@ -208,17 +216,15 @@ tags:
       This describes the endpoints that deal with balance on the Topcontent API.
 
 x-tagGroups:
-  - name: Getting started
-    tags:
-      - Introduction
-      - Sandbox testing
-      - Best Ppractices
-  - name: API Details
+  - name: Topcontent API
     tags:
       - Overview
+      - Workflows
       - Authentication
-      - Callback URLs
-      - Errors
+      - Sandbox testing
+      - Handling errors
+      - Webhooks
+      - Best practices
   - name: Translations
     tags:
       - Translation orders
@@ -237,7 +243,8 @@ x-tagGroups:
     tags:
       - Languages
 servers:
-  - url: 'https://app.topcontent.com/api/v2'
+  - url: 'https://api.topcontent.com/v2'
+  - url: 'https://sandbox.api.topcontent.com/v2'
 paths:
   '/translations/orders':
     $ref: 'paths/translations-orders.yaml'
