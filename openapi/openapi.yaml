@@ -111,21 +111,25 @@ tags:
       You must first <a href="https://app.topcontent.com/signup" target="_blank">create a client</a> in the Topcontent UI. To do this, you must be an owner of your Topcontent team. This is a one-time operation. You will be provided with an API Key in the <a href="https://app.topcontent.com/settings/api" target="_blank">API & Integrations</a> section.
   - name: Sandbox testing
     description: |
+      During the process of building your integration, it is important to properly test it.
+
       ## The test area for your API code
+
       What’s different about the sandbox?
       - Add free credits to your account for testing
-      - Trigger the “completion” of your translation jobs (i.e. be a faux translator) so that you can test what your code does in response
-      - Manually toggle between item states (e.g. ```in_production``` to ```reviewable```) and other actions without triggering callbacks
-      - Test callbacks by clicking the Send Callback button
+      - Trigger the “completion” of your items, so that you can test what your code does in response
+      - Manually toggle between item states (```reviewable``` to ```approved```) and other actions without triggering webhooks
+      - Test webhooks by clicking the `Send Callback` button
 
       Note: The sandbox items database may occasionally be wiped clean to prepare it for new features so you should not rely on the sandbox for permanent storage.
+
       ## How to use the sandbox
       - Read the developer documentation
-      - Create a sandbox account
-      - Log in and generate a set of sandbox API keys
-      - Test your app, using http://api.sandbox.topcontent.com/v2/ as the base call URL
+      - Create a <a target="_blank" href="https://sandbox.api.topcontent.com/singup">sandbox account</a>
+      - Log in and grab a <a target="_blank" href="https://sandbox.api.topcontent.com/account/">sandbox API key</a>
+      - Test your app, using http://sandbox.api.topcontent.com/v2/ as the base call URL
 
-      Ready to deploy? Head over to the live Topcontent site. Create a full client account, generate a set of live API keys - and remember to paste them into your app.
+      Ready to deploy? Head over to the live Topcontent site. Create a full client account, grab a live API key - and remember to paste them into your app.
   - name: Handling errors
     description: |
       Whenever you send a request to the Topcontent API you’ll get a response in <a target="_blank" href="https://www.json.org/json-en.html">JSON (JavaScript Object Notation)</a> format.
@@ -189,6 +193,11 @@ tags:
       - An item is ready for review
       - An item has been approved automatically
       - An item is manually approved via our Topcontent self-service interface
+
+      Topcontent will send webhooks every 15 minutes for 12 hours until we receive a 200 status response.
+
+      Parameters to callbacks are formatted in JSON and submitted with a POST call.
+      An Item Payload will be POSTed inside a parameter named “item” as if it were a response.
   - name: Best practices
     description: |
       The following checklist contains practices critical for a healthy integration. Make sure your integration has all of them.
@@ -198,24 +207,28 @@ tags:
       - Get order status
       - Retrieve completed items
 
-      See the Visual Guide for more information.
-
       ## Make use of triple brackets
       If ordering trranslations triple brackets are useful to make sure certain texts, such as brand names, are preserved and uncharged. [Learn more](#)
 
       Note: HTML tags are an exception to this rule. Do not bracket them as you are not charged for them by default.
+
       ## Provide instructions for contributors
-      //TODO
+
+      The better instructions you add the better content you will receive from the writers. <a target="_blank" href="#">Read more</a> about how to write good instructions.
+
       ## Store internal information in custom_data
-      The “custom_data” parameter is designed for users of our API to help connect information in your system for reference. Do not store reference information in the callback_url or slug.
-      ## Use both callback functionality AND update polling, not just one or the other
-      The callback/webhook functionality is used to receive notifications about the item and is an easy way to get updates when your items change status. You can learn more about when these callbacks are sent on the [callbacks page](#).
 
-      However, due to possible network issues, callbacks must not be relied upon entirely. Make sure to periodically poll for items to stay updated with your items’ statuses. You can then the available items using the ```GET /translations/items/{ids}/``` endpoint as per the Visual Guide.
+      The “custom_data” parameter is designed for users of our API to help connect information in your system for reference. Do not store reference information in the webhook_url or slug.
+
+      ## Use both webhook functionality AND update polling, not just one or the other
+
+      The webhook functionality is used to receive notifications about the item and is an easy way to get updates when your items change status.
+      You can learn more about when these webhook are sent on the [Webhooks](#tag/Webhooks) page.
+
+      However, due to possible network issues, callbacks must not be relied upon entirely. Make sure to periodically poll for items to stay updated with your items’ statuses.
+
       ## Include the functionality to approve or return the items for corrections
-      Make sure to include the option to approve or return items for corrections using the ```PUT /translations/items/``` endpoint as necessary.
-
-      See our section for [review workflows](#) for more information.
+      Make sure to include the option to approve or return items for corrections.
 
       Unless you are working with trusted or preferred contributors, it is best to use ```auto_approve = 0```. By getting the item approved, you acknowledge that you are happy with the result, and thus forfeit your right to request for corrections.
   - name: Translation orders

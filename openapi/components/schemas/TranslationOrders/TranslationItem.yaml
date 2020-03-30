@@ -1,6 +1,6 @@
 type: object
 required:
-  - slug
+#  - slug
   - source_text
   - source_language_code
   - target_language_code
@@ -35,26 +35,26 @@ properties:
        - ```reviewable```
        - ```approved```
     example: 'approved'
-  type:
-    description: |
-      Item type. Available values:
-        - ```text``` - Use for ordering text item via the API;
-        - ```file``` - Use for ordering file item via the API.
-    type: string
-    default: text
-    example: text
+#  type:
+#    description: |
+#      Item type. Available values:
+#        - ```text``` - Use for ordering text item via the API;
+#        - ```file``` - Use for ordering file item via the API.
+#    type: string
+#    default: text
+#    example: text
   source_language_code:
     $ref: ./SourceLanguageCode.yaml
   target_language_code:
     $ref: ./TargetLanguageCode.yaml
   quality:
     $ref: ./TranslationQuality.yaml
-  purpose:
-    description: |
-      Describe the purpose of the translation. Examples: ```Personal```, ```Business```, ```Online```, ```Web content```, ```App localization``` or ```Other```.
-    type: string
-    maxLength: 100
-    example: App localization
+#  purpose:
+#    description: |
+#      Describe the purpose of the translation. Examples: ```Personal```, ```Business```, ```Online```, ```Web content```, ```App localization``` or ```Other```.
+#    type: string
+#    maxLength: 100
+#    example: App localization
 #  slug:
 #    description: Item title. For internally storing, can be generic.
 #    type: string
@@ -75,11 +75,11 @@ properties:
     $ref: ../Instructions.yaml
   auto_approve:
     $ref: ../AutoApprove.yaml
-  max_chars:
-    description: Expresses character limit of translation. Should always be greater than 0.
-    type: integer
-    maxLength: 1
-    example: 300
+#  max_chars:
+#    description: Expresses character limit of translation. Should always be greater than 0.
+#    type: integer
+#    maxLength: 1
+#    example: 300
   custom_data:
     $ref: ../CustomData.yaml
   webhook_url:

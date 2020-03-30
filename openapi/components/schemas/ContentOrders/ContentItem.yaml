@@ -4,28 +4,56 @@ minItems: 1
 items:
   type: object
   required:
-    - slug
     - language_code
     - quality
     - h1
     - min_length
     - template_id
   properties:
-    slug:
-      description: Item title. For internally storing, can be generic.
+    item_id:
+      type: integer
+      description: Item ID
+      readOnly: true
+      example: 167834
+    order_id:
+      type: integer
+      description: Order ID
+      readOnly: true
+      example: 3456
+    credits_used:
+      type: number
+      format: double
+      readOnly: true
+      description: The total amount of the order.
+      example: 1.08
+    currency:
+      $ref: ../CurrencyCode.yaml
+    status:
       type: string
-      maxLength: 255
-      example: "Product description"
+      readOnly: true
+      description: |
+        One of the following values:
+         - ```draft```
+         - ```in_production```
+         - ```revising```
+         - ```reviewable```
+         - ```approved```
+      example: 'approved'
+#    slug:
+#      description: Item title. For internally storing, can be generic.
+#      type: string
+#      maxLength: 255
+#      example: "Product description"
     language_code:
       $ref: ../LanguageCode.yaml
     quality:
       $ref: ./ContentQuality.yaml
-    purpose:
-      description: |
-        Describe the purpose of the text exampples: ```Personal```, ```Business```, ```Online```, ```Web content``` or ```Other```...
-      type: string
-      maxLength: 100
-      example: Web content
+#    purpose:
+#      description: |
+#        Describe the purpose of the text exampples: ```Personal```, ```Business```, ```Online```, ```Web content``` or ```Other```...
+#      type: string
+#      maxLength: 100
+#      example: Web content
     h1:
       description: This is the H1 HTML tag for your article, it cannot be changed by the writer.
       type: string
@@ -43,7 +71,7 @@ items:
       type: string
       example: gh2J34kL
     meta_tags:
-      description: <a hrref="#">Meta tags</a> are invisible tags that provide data about your page to search engines and website visitors.
+      description: <a href="#">Meta tags</a> are invisible tags that provide data about your page to search engines and website visitors.
       type: boolean
       example: true
       default: false
@@ -126,5 +154,10 @@ items:
       $ref: ../CustomData.yaml
     webhook_url:
       $ref: ../WebhookURL.yaml
+    body:
+      description: Item text. Available if a status of the item is ```reviewable``` or ```approved```
+      type: string
+      readOnly: true
+      example: "<h1>Good holiday weather</h1> <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p> <h2>Where can I get some?</h2> <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>"
 #    return_options:
 #      $ref: ../ReturnOptions.yaml

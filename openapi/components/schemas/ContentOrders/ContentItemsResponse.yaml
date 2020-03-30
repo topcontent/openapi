@@ -1,0 +1,15 @@
+type: object
+properties:
+  total_count:
+    $ref: ../Pagination/TotalCount.yaml
+  offset:
+    $ref: ../Pagination/Offset.yaml
+  limit:
+    $ref: ../Pagination/Limit.yaml
+  data:
+    type: array
+    description: List of found items filtered by the given parameters.
+    items:
+      $ref: ./ContentItem.yaml
+  links:
+    $ref: ../Pagination/Links.yaml

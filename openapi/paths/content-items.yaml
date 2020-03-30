@@ -17,7 +17,7 @@ get:
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/TranslationOrders/TranslationItemsResponse.yaml
+            $ref: ../components/schemas/ContentOrders/ContentItemsResponse.yaml
     '422':
       description: Forbidden
       content:
