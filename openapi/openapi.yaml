@@ -38,7 +38,7 @@ tags:
       ## Throttling
       To ensure fair usage in our API, we put limits on the number of requests per originating IP address.
 
-      //TODO
+      The limit is 100 requests/second.
 
       Requests are tracked at millisecond granularity. For example, a 100 requests/second corresponds to 10 requests every 100 milliseconds.
 
@@ -61,8 +61,8 @@ tags:
       This is done by using the “custom_data” parameter.
 
       The most common way to work with the Topcontent API is to set a location for us to push notifications to.
-      This is done by setting the “callback_options” to a public accessible endpoint.
-      Whenever there is an update to the job, like when a contributor starts working on the content or has finished the item, Topcontent will POST the content to the callback_url provided. //TODO
+      This is done by setting the “webhook_url” to a public accessible endpoint.
+      Whenever there is an update to the item, like when our team has finished the item, Topcontent will POST the content to the webhook_url provided.
 
       The more information a contributor has about the text they are working on, the higher the quality will be.
       All context for an item can be appended to the “instructions” parameter when sending an item.
@@ -74,33 +74,31 @@ tags:
       ## Checking on the status of the order
 
       Once an item has been sent to Topcontent, it can go through a few different statuses.
-      Initially all items that are sent are first put into a queuing system. //TODO drafts.
-      This allows us to accept very large payloads from any number of users 24/7. In the background, we’ll begin processing these items and making them “available” to our contributors.
+      If a client does not have enought credits they will be saved as drafts and status of these items will be `draft`.
 
-      Once a contributor starts to work on an item, we consider the item “in_production”.
-      The item will remain in this state until they’ve completed the work.
+      If a client has enought credits the items in the order go to production and the status of these items will be `in_production`. The items will remain in this state until our team have completed the work.
       At this time the item will either be in a ‘reviewable’ state (if you want to review the item and perhaps communicate with our contributor about changes you’d like to see made) or it will be in the ‘approved’ state.
 
-      At anytime you may get an update on the items in the order by sending a GET request to the ```/translations/orders/{id}``` for translation items and ```/content/orders/{id}``` for content orders end point.
+      At anytime you may get an update on the items in the order by sending a request to the ```GET /translations/orders/{id}``` for translation items and ``` GET /content/orders/{id}``` for content orders end point.
 
       ## Getting the items back
 
       Typically Topcontent will send the completed items to your system as out team complete them.
-      However, if you’d like to poll our system for an update, that can be best done by passing a comma separated list of item ids to ```GET /translations/items?ids=45646,45647,45648```.
+      However, if you’d like to poll our system for an update, that can be best done by passing a comma separated list of item ids to ```GET /translations/items?ids=45646,45647,45648``` for translation orders and to ```GET /content/items?ids=45646,45647,45648``` for content orders.
 
-      The best way to get a list of completed item IDs in an order is to make a request to the ```GET /translations/orders/{id}``` end point and check the “items_approved” array.
+      The best way to get a list of completed item IDs in an order is to make a request to the ```GET /translations/orders/{id}``` for translation orders and ```GET /content/orders/{id}``` for content orders end point and check the “items_approved” array.
 
       ## Review the item
 
-      Once an item is completed, we allow for 96 hours for review. Sending a request to the ```PUT /translations/items/{id}/approve``` endpoint you’re able to update the status to “approved”.
+      Once an item is completed, we allow for 96 hours for review. Sending a request to the ```PUT /translations/items/{id}/approve``` for translation items and ```PUT /content/items/{id}/approve``` for conten items endpoint you’re able to update the status to “approved”.
 
       If you prefer not to manually approve items, or your system does not have the capability, you can simply add the ```auto_approve=true``` parameter to your item requests.
-      This will instantly approve items when they are submitted, and provide you with the full translated text or written content.
+      This will instantly approve items when they are finished by our team, and provide you with the full translated text or written content.
       Please note that by using the ```auto_approve``` parameter you waive your right to request corrections.
 
       ## Request corrections for the item
 
-      If an item requires corrections, you can request them using the ``` PUT /translations/items/{id}/revise``` call, and leave a comment for a contributor.
+      If an item requires corrections, you can request them using the ``` PUT /translations/items/{id}/revise``` for translation items and ``` PUT /content/items/{id}/revise``` for content items call, and leave a comment for a contributor.
       Please be as descriptive as possible with your comment when you request a correction.
 
       This workflow can be useful when you want to add specific automated quality checks on the content.
@@ -130,7 +128,7 @@ tags:
       Ready to deploy? Head over to the live Topcontent site. Create a full client account, generate a set of live API keys - and remember to paste them into your app.
   - name: Handling errors
     description: |
-      Whenever you send a request to the Topcontent API you’ll get a response in JSON (JavaScript Object Notation) format.
+      Whenever you send a request to the Topcontent API you’ll get a response in <a target="_blank" href="https://www.json.org/json-en.html">JSON (JavaScript Object Notation)</a> format.
       This is a standard for data communication that’s easy to read for humans as well as machines.
       Alongside the JSON-response an HTTP status code is sent that shows whether the request was successful or not.
       If it wasn’t, you can tell by the code and the `errors` array in the response what went wrong, why it went wrong and whether there is something you can do about it.
@@ -147,6 +145,40 @@ tags:
 
       ## A successful request
       An HTTP status `200 OK`, `201 Created` or `204 No Content` is issued whenever your request was a success.
+
+      ## Examples of error responses
+      Things will sometimes go wrong.
+
+      The HTTP status `401 Unauthorized` indicates missing or incorrect authorization to execute the desired action.
+
+      Another error that occurs often, is the well known HTTP status `404 Not Found`, which indicates the object you’re trying to retrieve or manipulate does not exist.
+
+      Sometimes a status HTTP `422 Unprocessable Entity` is returned.
+      When it occurs there is extra information in the JSON about what part or field of your request is likely to be causing the error.
+      In these cases you will find the response has the parameter field.
+
+      ## All possible status codes
+
+      The Topcontent API will only ever return a subset of all legal HTTP status codes. Here’s the full list:
+
+      Code | Description
+      --------- | -------
+      200 |	OK – Your request was successful.
+      201 |	Created – The entity was created successfully.
+      204 |	No Content – The requested entity was canceled / deleted successfully.
+      400 |	Bad Request – The Topcontent API was unable to understand your request. There might be an error in your syntax.
+      401 |	Unauthorized – Your request wasn’t executed due to failed authentication. Check your API key.
+      403 |	Forbidden – You do not have access to the requested resource.
+      404 |	Not Found – The object referenced by your URL does not exist.
+      405 |	Method Not Allowed – You’re trying to use an HTTP method that is not applicable on this URL or resource. Refer to the Allow header to see which methods the endpoint supports.
+      415 |	Unsupported Media Type – Your request’s encoding is not supported or is incorrectly understood. Please always use JSON.
+      422 |	Unprocessable Entity – We could not process your request due to another reason than the ones listed above. The response usually contains a field property to indicate which field is causing the issue.
+      429 |	Too Many Requests – Your request has hit a rate limit. Please wait for a bit and retry.
+      500 |	Internal Server Error – An internal server error occurred while processing your request. Our developers are notified automatically, but if you have any information on how you triggered the problem, please contact us.
+      502 |	Bad Gateway – The service is temporarily unavailable, either due to calamity or (planned) maintenance. Please retry the request at a later time.
+      503 |	Service Unavailable – The service is temporarily unavailable, either due to calamity or (planned) maintenance. Please retry the request at a later time.
+      504 |	Gateway Timeout – Your request is causing an unusually long process time.
+
   - name: Webhooks
     description: |
       Webhooks are used to process real-time status updates, for example when an item is reviewable.
