@@ -2,7 +2,7 @@ get:
   tags:
     - Invoices
   summary: List invoices
-  operationId: GetInvoices
+  operationId: get-invoices
   description: |
       Retrieve all invoices on the account. Optionally filter on year.
 

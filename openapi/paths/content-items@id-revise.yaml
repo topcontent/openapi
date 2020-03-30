@@ -2,7 +2,7 @@ put:
   tags:
     - Content items
   summary: Revise content item
-  operationId: ReviseContentItem
+  operationId: revise-content-item
   description: |
       Returns the item back for corrections to the contributor for revisions.
   requestBody:

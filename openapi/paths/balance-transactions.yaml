@@ -8,7 +8,7 @@ get:
   tags:
     - Balance
   summary: List balance transactions
-  operationId: GetBalanceTransactions
+  operationId: get-balance-transactions
   description: |
       Retrieve balance transactions on the account. The results are paginated.
   parameters:

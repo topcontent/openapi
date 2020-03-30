@@ -2,7 +2,7 @@ get:
   tags:
     - Balance
   summary: Get balance
-  operationId: GetBalance
+  operationId: get-balance
   description: |
       Retrieve the details of the credit balance.
   responses:

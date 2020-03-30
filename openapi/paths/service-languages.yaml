@@ -2,7 +2,7 @@ get:
   tags:
     - Languages
   summary: Get Languages
-  operationId: GetLanguages
+  operationId: get-languages
   description: |
       Returns a list of supported languages and their language codes.
   responses:

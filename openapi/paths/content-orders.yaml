@@ -2,7 +2,7 @@ post:
   tags:
     - Content orders
   summary: Submit content order
-  operationId: PostContentOrder
+  operationId: submit-content-order
   description: |
       Order an item or group of items to write. One order should contain at least one item.
 

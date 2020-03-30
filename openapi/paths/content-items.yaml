@@ -2,7 +2,7 @@ get:
   tags:
     - Content items
   summary: Get content items
-  operationId: GetContentItems
+  operationId: get-content-items
   description: |
       Retrieves a list of the most recent items filtered by the given parameters.
   parameters:

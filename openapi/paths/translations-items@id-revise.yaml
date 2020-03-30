@@ -2,7 +2,7 @@ put:
   tags:
     - Translation items
   summary: Revise translation item
-  operationId: ReviseTranslationItem
+  operationId: revise-translation-item
   description: |
       Returns the item back for corrections to the translator for revisions.
   requestBody:

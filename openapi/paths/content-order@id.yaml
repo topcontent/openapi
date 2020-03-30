@@ -2,7 +2,7 @@ get:
   tags:
     - Content orders
   summary: Get content order
-  operationId: GetContentOrder
+  operationId: get-content-order
   description: |
       Retrieves a group of items that were previously submitted together by their order id.
   parameters:

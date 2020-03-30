@@ -2,7 +2,7 @@ get:
   tags:
     - Translation items
   summary: Get translation items
-  operationId: GetTranslationItems
+  operationId: get-translation-items
   description: |
       Retrieves a list of the most recent items filtered by the given parameters.
   parameters:

@@ -2,7 +2,7 @@ get:
   tags:
     - Translation orders
   summary: Get translation order
-  operationId: GetTranslationOrder
+  operationId: get-translation-order
   description: |
       Retrieves a group of items that were previously submitted together by their order id.
   parameters:

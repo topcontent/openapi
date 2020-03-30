@@ -2,7 +2,7 @@ put:
   tags:
     - Content items
   summary: Approve content item
-  operationId: ApproveContentItem
+  operationId: approve-content-item
   description: |
       Approve an item.
   requestBody:

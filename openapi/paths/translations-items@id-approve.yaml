@@ -2,7 +2,7 @@ put:
   tags:
     - Translation items
   summary: Approve translation item
-  operationId: ApproveTranslationItem
+  operationId: approve-translation-item
   description: |
       Approve an item.
   requestBody:

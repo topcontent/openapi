@@ -2,7 +2,7 @@ post:
   tags:
     - Translation orders
   summary: Submit translation order
-  operationId: PostTranslationOrder
+  operationId: submit-translation-order
   description: |
       Submits an item or group of items to translate. One order should contain at least one item. On order could contain different types of items.
   requestBody:

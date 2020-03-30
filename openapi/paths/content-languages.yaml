@@ -2,7 +2,7 @@ get:
   tags:
     - Content services
   summary: Content languages
-  operationId: GetContentLanguages
+  operationId: get-content-languages
   description: |
       Returns supported content languages, qualities, and credit prices.
   parameters:
