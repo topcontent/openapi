@@ -8,7 +8,7 @@ items:
     - language_code
     - quality
     - h1
-    - length
+    - min_length
     - template_id
   properties:
     slug:
