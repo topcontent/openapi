@@ -51,17 +51,17 @@ properties:
     $ref: ./TranslationQuality.yaml
   purpose:
     description: |
-      Describe the purpose of the translation exampples: ```Personal```, ```Business```, ```Online```, ```Web content```, ```App localization``` or ```Other```...
+      Describe the purpose of the translation. Examples: ```Personal```, ```Business```, ```Online```, ```Web content```, ```App localization``` or ```Other```.
     type: string
     maxLength: 100
     example: App localization
-  slug:
-    description: Item title. For internally storing, can be generic.
-    type: string
-    maxLength: 150
-    example: "Information about product description"
+#  slug:
+#    description: Item title. For internally storing, can be generic.
+#    type: string
+#    maxLength: 150
+#    example: "Information about product description"
   source_text:
-    description: Original body of text (to be translated). Max length of 5000 words.
+    description: Original body of text (to be translated).
     type: string
     example: "Get the Best Product Description Writing Service with Topcontent"
   translated_text:
@@ -82,5 +82,7 @@ properties:
     example: 300
   custom_data:
     $ref: ../CustomData.yaml
-  return_options:
-    $ref: ../ReturnOptions.yaml
+  webhook_url:
+    $ref: ../WebhookURL.yaml
+#  return_options:
+#    $ref: ../ReturnOptions.yaml

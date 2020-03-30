@@ -1,3 +1,3 @@
-description: "Up to 1K of storage for client-specific data that may be helpful for you to have mapped to this item"
+description: "Storage for client-specific data that may be helpful for you to have mapped to this item."
 type: string
 example: "{request_id: 87353}"

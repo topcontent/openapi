@@ -1,0 +1,5 @@
+type: string
+format: URL
+description: Webhook URL, should not contain authentication information.
+maxLength: 200
+example: "https://mysite.com/receive_topcontent_items"

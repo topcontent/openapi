@@ -124,5 +124,7 @@ items:
       $ref: ../AutoApprove.yaml
     custom_data:
       $ref: ../CustomData.yaml
-    return_options:
-      $ref: ../ReturnOptions.yaml
+    webhook_url:
+      $ref: ../WebhookURL.yaml
+#    return_options:
+#      $ref: ../ReturnOptions.yaml
