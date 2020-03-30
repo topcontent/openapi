@@ -1,0 +1,24 @@
+type: object
+description: |
+  Links to help navigate through the lists of objects, based on the given offset.
+properties:
+  first:
+    type: string
+    format: URL
+    description: The first set of objects, if available.
+    example: "https://api.topcontent.com/v2/object?limit=10&offset=0"
+  previous:
+    type: string
+    format: URL
+    description: The previous set of objects, if available.
+    example: null
+  next:
+    type: string
+    format: URL
+    description: The next set of objects, if available.
+    example: "https://api.topcontent.com/v2/objects?limit=10&offset=10"
+  last:
+    type: string
+    format: URL
+    description: The last set of objects, if available.
+    example: "https://api.topcontent.com/v2/objects?limit=10&offset=270"

@@ -1,30 +1,18 @@
-type: object
-properties:
-  status:
-    $ref: ../Status.yaml
-  response:
-    type: object
-    properties:
-      items_count:
-        type: integer
-        description: The total amount of the returned items.
-        example: 1
-      language_directions:
-        type: array
-        description: List of language directions.
-        items:
-          type: object
-          properties:
-            source_language_code:
-              $ref: ./SourceLanguageCode.yaml
-            target_language_code:
-              $ref: ./TargetLanguageCode.yaml
-            quality:
-              $ref: ./TranslationQuality.yaml
-            price:
-              type: number
-              format: double
-              description: //TODP
-              example: 0.06
-            currency:
-              $ref: ../CurrencyCode.yaml
+type: array
+description: List of language directions.
+items:
+  type: object
+  properties:
+    source_language_code:
+      $ref: ./SourceLanguageCode.yaml
+    target_language_code:
+      $ref: ./TargetLanguageCode.yaml
+    quality:
+      $ref: ./TranslationQuality.yaml
+    price:
+      type: number
+      format: double
+      description: //TODP
+      example: 0.06
+    currency:
+      $ref: ../CurrencyCode.yaml

@@ -1,0 +1,4 @@
+type: integer
+description: |
+  The number of skipped objects as requested.
+example: 0

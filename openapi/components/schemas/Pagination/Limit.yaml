@@ -1,0 +1,4 @@
+type: integer
+description: |
+  The number of objects found in data, which is either the requested number (with a maximum of 200) or the default number.
+example: 10

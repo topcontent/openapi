@@ -1,16 +1,15 @@
 type: object
 properties:
-  status:
-    $ref: ../Status.yaml
-  response:
-    type: object
-    properties:
-      items_count:
-        type: integer
-        description: The total amount of items.
-        example: 1
-      items:
-        type: array
-        description: List of found items filtered by the given parameters.
-        items:
-          $ref: ./TranslationItem.yaml
+  total_count:
+    $ref: ../Pagination/TotalCount.yaml
+  offset:
+    $ref: ../Pagination/Offset.yaml
+  limit:
+    $ref: ../Pagination/Limit.yaml
+  data:
+    type: array
+    description: List of found items filtered by the given parameters.
+    items:
+      $ref: ./TranslationItem.yaml
+  links:
+    $ref: ../Pagination/Links.yaml

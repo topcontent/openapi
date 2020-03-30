@@ -1,24 +1,16 @@
-type: object
-properties:
-  status:
-    $ref: ../Status.yaml
-  response:
-    type: object
-    properties:
-      languages:
-        type: array
-        items:
-          type: object
-          properties:
-            unit_type:
-              type: string
-              example: word
-            code:
-              type: string
-              example: es
-            name:
-              type: string
-              example: Spanish (Spain)
-            localized_name:
-              type: string
-              example: Español
+type: array
+items:
+  type: object
+  properties:
+    unit_type:
+      type: string
+      example: word
+    code:
+      type: string
+      example: es
+    name:
+      type: string
+      example: Spanish (Spain)
+    localized_name:
+      type: string
+      example: Español

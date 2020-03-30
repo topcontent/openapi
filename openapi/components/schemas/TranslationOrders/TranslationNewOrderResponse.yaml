@@ -1,33 +1,28 @@
 type: object
 properties:
-  status:
-    $ref: ../Status.yaml
-  response:
+  order_id:
+    type: integer
+    description: The order’s unique identifier.
+    example: 673423
+  items_count:
+    type: integer
+    description: The total amount of items in the order.
+    example: 1
+  credits_used:
+    type: number
+    format: double
+    description: The total amount of the order.
+    example: 1.08
+  currency:
+    $ref: ../CurrencyCode.yaml
+  items:
     type: object
-    properties:
-      order_id:
-        type: integer
-        description: The order’s unique identifier.
-        example: 673423
-      items_count:
-        type: integer
-        description: The total amount of items in the order.
-        example: 1
-      credits_used:
-        type: number
-        format: double
-        description: The total amount of the order.
-        example: 1.08
-      currency:
-        $ref: ../CurrencyCode.yaml
-      items:
-        type: object
 #        description: //TODO
-        properties:
-          $ref: ../OrderItems.yaml
-        example:
-          items_draft: []
-          items_in_production: [23456]
-          items_revising: []
-          items_reviewable: []
-          items_approved: []
+    properties:
+      $ref: ../OrderItems.yaml
+    example:
+      items_draft: []
+      items_in_production: [23456]
+      items_revising: []
+      items_reviewable: []
+      items_approved: []

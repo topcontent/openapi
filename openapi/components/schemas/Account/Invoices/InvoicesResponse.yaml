@@ -1,104 +1,82 @@
 type: object
 properties:
-  status:
-    $ref: ../../Status.yaml
-  response:
-    type: object
-    properties:
-      count:
-        type: integer
-        description: |
-          The number of invoices found.
-        example: 10
-      items:
-        type: array
-        description: The object containing the queried data.
-        items:
-          type: object
-          properties:
-            id:
-              type: integer
-              description: |
-                The invoice’s unique identifier, for example ```345```
-              example: 345
-            status:
-              type: string
-              description: |
-                Status of the invoice.
+  total_count:
+    $ref: ../../Pagination/TotalCount.yaml
+  offset:
+    $ref: ../../Pagination/Offset.yaml
+  limit:
+    $ref: ../../Pagination/Limit.yaml
+  data:
+    type: array
+    description: The actual data you’re looking for.
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: |
+            The invoice’s unique identifier, for example ```345```
+          example: 345
+        status:
+          type: string
+          description: |
+            Status of the invoice.
 
-                Possible values:
-                 - ```unpaid``` The invoice is not paid yet.
-                 - ```pending``` //TODO
-                 - ```paid``` The invoice is paid.
-              example: "paid"
-            issued_at:
-              type: string
-              description: |
-                The invoice date in ```YYYY-MM-DD``` format.
-              example: "2020-03-01"
-            paid_at:
-              type: string
-              description: |
-                The date on which the invoice was paid, in ```YYYY-MM-DD``` format. Only for paid invoices.
-              example: "2020-03-02"
-            net_amount:
-              type: number
-              description: A string containing the exact amount of the invoice excluding VAT.
-              format: double
-              example: "120.50"
-            vat_amount:
-              type: number
-              description: A string containing the exact VAT amount of the invoice. Only for merchants registered in EU. For merchants outside the EU, no VAT will be charged.
-              format: double
-              example: "21.69"
-            gross_amount:
-              type: number
-              description: A string containing the exact total amount of the invoice including VAT.
-              format: double
-              example: "142.19"
-            currency:
-              $ref: "../../CurrencyCode.yaml"
-            created_at:
-              type: string
-              format: date-time
-              description: Invoice created time
-              example: "2018-11-09T14:10:36+00:00"
-            _links:
+            Possible values:
+             - ```unpaid``` The invoice is not paid yet.
+             - ```pending``` //TODO
+             - ```paid``` The invoice is paid.
+          example: "paid"
+        issued_at:
+          type: string
+          description: |
+            The invoice date in ```YYYY-MM-DD``` format.
+          example: "2020-03-01"
+        paid_at:
+          type: string
+          description: |
+            The date on which the invoice was paid, in ```YYYY-MM-DD``` format. Only for paid invoices.
+          example: "2020-03-02"
+        net_amount:
+          type: number
+          description: A string containing the exact amount of the invoice excluding VAT.
+          format: double
+          example: 120.50
+        vat_amount:
+          type: number
+          description: A string containing the exact VAT amount of the invoice. Only for merchants registered in EU. For merchants outside the EU, no VAT will be charged.
+          format: double
+          example: 21.69
+        gross_amount:
+          type: number
+          description: A string containing the exact total amount of the invoice including VAT.
+          format: double
+          example: 142.19
+        currency:
+          $ref: "../../CurrencyCode.yaml"
+        created_at:
+          type: string
+          format: date-time
+          description: Invoice created time
+          example: "2018-11-09T14:10:36+00:00"
+        links:
+          type: object
+          description: Useful URLs to related resources.
+          properties:
+            pdf:
               type: object
-              description: Useful URLs to related resources.
+              description: The URL to the PDF version of the invoice. The URL will expire after 60 minutes.
               properties:
-                pdf:
-                  type: object
-                  description: The URL to the PDF version of the invoice. The URL will expire after 60 minutes.
-                  properties:
-                    href:
-                      type: string
-                      format: URL
-                      example: "https://app.topcontent.com/api/v2/download/invoice/345/2ab44d60b35b1d06090bba955fa2c602"
-                    type:
-                      type: string
-                      example: "application/pdf"
-                    expires_at:
-                      type: string
-                      format: date-time
-                      example: "2018-11-09T14:10:36+00:00"
-      _links:
-        type: object
-        description: |
-          Links to help navigate through the lists of items.
-        properties:
-          self:
-            type: string
-            format: URL
-            description: The URL to the current set of items.
-            example: "https://app.topcontent.com/api/v2/invoices?page=2"
-          previous:
-            type: string
-            format: URL
-            description: The previous set of items, if available.
-            example: "https://app.topcontent.com/api/v2/invoices?page=1"
-          next:
-            type: string
-            format: URL
-            description: The next set of items, if available.
-            example: "https://app.topcontent.com/api/v2/invoices?page=3"
+                href:
+                  type: string
+                  format: URL
+                  example: "https://api.topcontent.com/v2/download/invoice/345/2ab44d60b35b1d06090bba955fa2c602"
+                type:
+                  type: string
+                  example: "application/pdf"
+                expires_at:
+                  type: string
+                  format: date-time
+                  example: "2018-11-09T14:10:36+00:00"
+  links:
+    $ref: ../../Pagination/Links.yaml

@@ -1,62 +1,41 @@
 type: object
 properties:
-  status:
-    $ref: ../../Status.yaml
-  response:
-    type: object
-    properties:
-      count:
-        type: integer
-        description: The number of items found.
-        example: 1
-      items:
-        type: array
-        description: The list of balance transactions.
-        items:
-          type: object
-          properties:
-            id:
-              type: integer
-              description: ID of the balance transaction.
-              example: 976
-            created_at:
-              type: string
-              format: date-time
-              description: Transaction created time
-              example: "2020-03-24T06:21:55Z"
-            amount:
-              type: number
-              format: double
-              description: The transactions's amount
-              example: "432.19"
-            credits:
-              type: number
-              format: double
-              description: Available balance after the transaction.
-              example: "10432.19"
-            currency:
-              $ref: ../../CurrencyCode.yaml
-            description:
-              type: string
-              description: The transactions's description
-              example: "Topcontent services"
-      _links:
-        type: object
-        description: |
-          Links to help navigate through the lists of items.
-        properties:
-          self:
-            type: string
-            format: URL
-            description: The URL to the current set of items.
-            example: "https://app.topcontent.com/api/v2/balance/history?page=2"
-          previous:
-            type: string
-            format: URL
-            description: The previous set of items, if available.
-            example: "https://app.topcontent.com/api/v2/balance/history?page=1"
-          next:
-            type: string
-            format: URL
-            description: The next set of items, if available.
-            example: "https://app.topcontent.com/api/v2/balance/history?page=3"
+  total_count:
+    $ref: ../../Pagination/TotalCount.yaml
+  offset:
+    $ref: ../../Pagination/Offset.yaml
+  limit:
+    $ref: ../../Pagination/Limit.yaml
+  data:
+    type: array
+    description: The list of balance transactions.
+    items:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID of the balance transaction.
+          example: 976
+        created_at:
+          type: string
+          format: date-time
+          description: Transaction created time
+          example: "2020-03-24T06:21:55Z"
+        amount:
+          type: number
+          format: double
+          description: The transactions's amount
+          example: "432.19"
+        credits:
+          type: number
+          format: double
+          description: Available balance after the transaction.
+          example: "10432.19"
+        currency:
+          $ref: ../../CurrencyCode.yaml
+        description:
+          type: string
+          description: The transactions's description
+          example: "Topcontent services"
+  links:
+    $ref: ../../Pagination/Links.yaml
