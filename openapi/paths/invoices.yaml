@@ -4,7 +4,7 @@ get:
   summary: List invoices
   operationId: get-invoices
   description: |
-      Retrieve all invoices on the account. Optionally filter on year.
+      Retrieve all invoices in the account. Optionally filter on year.
 
       The results are paginated.
   parameters:

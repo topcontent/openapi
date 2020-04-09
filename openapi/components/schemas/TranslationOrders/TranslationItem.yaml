@@ -20,7 +20,7 @@ properties:
     type: number
     format: double
     readOnly: true
-    description: The total amount of the order.
+    description: The total price of the order.
     example: 1.08
   currency:
     $ref: ../CurrencyCode.yaml
@@ -61,7 +61,7 @@ properties:
 #    maxLength: 150
 #    example: "Information about product description"
   source_text:
-    description: Original body of text (to be translated).
+    description: The original body of text (to be translated).
     type: string
     example: "Get the Best Product Description Writing Service with Topcontent"
   translated_text:

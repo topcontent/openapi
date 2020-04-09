@@ -4,7 +4,7 @@ get:
   summary: Content languages
   operationId: get-content-languages
   description: |
-      Returns supported content languages, qualities, and credit prices.
+      Returns supported content languages, qualities, and pricing.
   parameters:
     - $ref: ../components/parameters/collectionLanguageCode.yaml
   responses:

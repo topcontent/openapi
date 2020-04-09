@@ -6,7 +6,11 @@ properties:
     items:
       type: array
       example:
-        language_code:
-          - "The language_code is required."
-        quality:
+        items.0.language_code:
+          - "The items.0.language_code may only contain letters."
+          - "The items.0.language_code must be at least 2 characters."
+        items.1.language_code:
+         - "The items.1.language_code may only contain letters."
+         - "The items.1.language_code must be at least 2 characters."
+        items.1.quality:
           - "The quality is required."

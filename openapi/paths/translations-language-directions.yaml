@@ -4,7 +4,7 @@ get:
   summary: Language directions
   operationId: get-translation-language-directions
   description: |
-      Returns supported translation language directions, qualities, and credit prices.
+      Returns supported translation language directions, qualities, and pricing.
   parameters:
     - $ref: ../components/parameters/collectionTranslationLanguageSourceCode.yaml
   responses:

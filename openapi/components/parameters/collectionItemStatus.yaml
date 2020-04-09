@@ -1,11 +1,11 @@
 name: status
 in: query
 description: |
-  Retrieve a list of items with the provided status. One of the following values:
-   - ```draft```
-   - ```in_production```
-   - ```revising```
-   - ```reviewable```
-   - ```approved```
+  Retrieve a list of items with the provided status. The following statuses exist:
+   - `draft`
+   - `in_production`
+   - `revising`
+   - `reviewable`
+   - `approved`
 schema:
   type: string

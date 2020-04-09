@@ -8,7 +8,7 @@ content:
         comment:
           type: string
           maxLength: 25000
-          description: The reason to the translator for sending the job back for revisions.
+          description: The reason for the contributor for sending the item back for revisions.
           example: |
             Still a great article but a few things need fixing:
 

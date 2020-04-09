@@ -1,4 +1,4 @@
-description: Whether to automatically approve an item after they’ve been finished. Default is false If false, completed item will await review and approval by customer for 96 hours.
+description: Whether to automatically approve an item after they’ve been finished. Default is false If a false, the completed item will await review and approval by a customer for 96 hours. After 96 hours without action it will be automatically approved.
 type: boolean
 example: false
 default: fasle

@@ -6,7 +6,15 @@ properties:
     items:
       type: array
       example:
-        source_language_code:
-          - "The source_language_code is required."
-        target_language_code:
-          - "The target_language_code is required."
+        items.0.source_language_code:
+          - "The items.0.source_language_code may only contain letters."
+          - "The items.0.source_language_code must be at least 2 characters."
+        items.1.source_language_code:
+         - "The items.1.source_language_code may only contain letters."
+         - "The items.1.source_language_code must be at least 2 characters."
+        items.0.target_language_code:
+          - "The items.0.target_language_code may only contain letters."
+          - "The items.0.target_language_code must be at least 2 characters."
+        items.1.target_language_code:
+         - "The items.1.target_language_code may only contain letters."
+         - "The items.1.target_language_code must be at least 2 characters."

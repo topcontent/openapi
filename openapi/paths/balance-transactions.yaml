@@ -10,7 +10,7 @@ get:
   summary: List balance transactions
   operationId: get-balance-transactions
   description: |
-      Retrieve balance transactions on the account. The results are paginated.
+      Retrieve balance transactions on the account. The results are paginated. This includes all transactions, not only the ones done using the API.
   parameters:
     - $ref: ../components/parameters/collectionYear.yaml
     - $ref: ../components/parameters/collectionLimit.yaml

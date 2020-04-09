@@ -4,9 +4,9 @@ post:
   summary: Submit content order
   operationId: submit-content-order
   description: |
-      Order an item or group of items to write. One order should contain at least one item.
+      Order an item or group of content items. One order must contain at least one item.
 
-      >**Note:** All items in one order should have the same ```language_code``` and ```quality``` parametrs.
+      >**Note:** All items in one order mast have the same ```language_code``` and ```quality``` parameters.
   requestBody:
     $ref: ../components/requestBodies/ContentOrder.yaml
   responses:

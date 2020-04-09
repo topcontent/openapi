@@ -4,9 +4,14 @@ items:
   properties:
     unit_type:
       type: string
+      description: |
+        Available values:
+        - `word`
+        - `character`
       example: word
     code:
       type: string
+      maxLength: 5
       example: es
     name:
       type: string

@@ -8,7 +8,7 @@ get:
   parameters:
     - name: id
       in: path
-      description: Order ID provided by Topcontent when submitting a new order
+      description: Order ID provided by the Topcontent API when submitting a new order
       required: true
       schema:
         type: integer

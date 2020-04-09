@@ -24,7 +24,7 @@ items:
       type: number
       format: double
       readOnly: true
-      description: The total amount of the order.
+      description: The total price of the order.
       example: 1.08
     currency:
       $ref: ../CurrencyCode.yaml
@@ -61,13 +61,16 @@ items:
       example: Good holiday weather
     min_length:
       type: integer
-      description: Amount of the miminum words for the article. //TODO rephrase
+      description: Minimum amount of words for the ordered content item. Basically, how long an article you would like to order.
       minimum: 5
       maximum: 5000
       example: 800
     template_id:
       description: |
-        You can specify how many paragraphs and headers the article will have. Learn more about content structure <a href="#">here</a>.
+        You can specify exactly what the ordered content item should look like.
+        For example how many paragraphs and headers.
+        You do this by creating a content template in the client login and then referencing that content template using the template_id in this parameter.
+        Learn more about content templates <a href="#">here</a>.
       type: string
       example: gh2J34kL
     meta_tags:
@@ -76,7 +79,7 @@ items:
       example: true
       default: false
     focus_keyword:
-      description: Use focus keyword of two or three words combined with different match types for better results.
+      description: Tell the writer which keyword they should focus on when writing. Can only be one.
       type: array
       maxItems: 1
       items:
@@ -95,7 +98,7 @@ items:
          keyword: 'Jesica Smith'
          match: 'exact'
     sub_keywords:
-      description: Use keywords of two or three words combined with different match types for better results.
+      description: Tell the writer which other keywords are important to include. Can be several. Separate using comma.
       type: array
       items:
         type: object
@@ -113,7 +116,7 @@ items:
          keyword: 'Jesica Smith'
          match: 'near'
     source_urls:
-      description: If you have a source of information or a site you want to direct the writer's attention to.
+      description: If you have a source of information or a site you want to direct the writer's attention to. Include a URL to it here.
       type: array
       items:
         type: string
@@ -123,13 +126,13 @@ items:
           - 'https://en.wikipedia.org/wiki/Content'
           - 'https://en.wikipedia.org/wiki/Product_description'
     target_url:
-      description: Let the writer know where this particular article will be published so that they can better understand what tone to use.
+      description: Let the writer know where this particular article will be published so that they can better understand how to write the article.
       type: string
       format: URL
       maxLength: 255
       example: 'http://example.com/'
     links:
-      description: If you want the writer to include links to specific webpage you can use this element to specify that.
+      description: If you want the writer to include links to a specific webpage you can use this element to specify that.
       type: array
       items:
         type: object

@@ -1,4 +1,4 @@
-description: Instructions for contributor to consider when writing. It is strongly encouraged to provide a detailed instructions for the contributor.
+description: Instructions for a contributor when writing. It is strongly encouraged to provide detailed instructions for the contributor.
 type: string
 maxLength: 1000
 writeOnly: true

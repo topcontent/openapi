@@ -1,6 +1,6 @@
 name: language_code
 in: query
-description: Source language code. Submitting this will filter the response to only relevant language directions.
+description: Language code. Submitting this will filter the response to only relevant languages.
 schema:
   type: string
   minLength: 2
