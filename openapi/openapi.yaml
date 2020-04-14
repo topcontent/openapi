@@ -203,10 +203,10 @@ tags:
       - An item has been approved automatically
       - An item is manually approved via our Topcontent self-service interface
 
-      Topcontent will send webhooks every 15 minutes for 12 hours until we receive a 200 status response.
+      Topcontent will send webhooks every 30 minutes for 24 hours until we receive a 200 status response.
 
       Parameters to callbacks are formatted in JSON and submitted with a POST call.
-      An Item Payload will be POSTed inside a parameter named “item” as if it were a response.
+      An Item Payload will be POSTed as if it were a response.
   - name: Best practices
     description: |
       The following checklist contains practices critical for healthy integration. Make sure your integration has all of them.
