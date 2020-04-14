@@ -82,7 +82,7 @@ properties:
 #    example: 300
   custom_data:
     $ref: ../CustomData.yaml
-  webhook_url:
-    $ref: ../WebhookURL.yaml
+  callback_url:
+    $ref: ../CallbackURL.yaml
 #  return_options:
 #    $ref: ../ReturnOptions.yaml

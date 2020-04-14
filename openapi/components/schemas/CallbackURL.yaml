@@ -1,0 +1,5 @@
+type: string
+format: URL
+description: Callback URL, should not contain authentication information.
+maxLength: 255
+example: "https://mysite.com/receive_topcontent_items"

@@ -155,8 +155,8 @@ items:
       $ref: ../AutoApprove.yaml
     custom_data:
       $ref: ../CustomData.yaml
-    webhook_url:
-      $ref: ../WebhookURL.yaml
+    callback_url:
+      $ref: ../CallbackURL.yaml
     body:
       description: Item text. Available if a status of the item is ```reviewable``` or ```approved```
       type: string

@@ -195,7 +195,7 @@ tags:
   - name: Webhooks
     description: |
       Webhooks are used to process real-time status updates, for example when an item is reviewable.
-      When submitting an order, you can set “webhook_url” for each item in the order.
+      When submitting an order, you can set “callback_url” for each item in the order.
       Topcontent will post any updates about the item as they happen which makes it the most efficient way to sync your system with Topcontent.
 
       Callback notifications are sent when:
