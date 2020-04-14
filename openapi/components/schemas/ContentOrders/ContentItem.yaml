@@ -74,7 +74,7 @@ items:
       type: string
       example: gh2J34kL
     meta_tags:
-      description: <a href="#">Meta tags</a> are invisible tags that provide data about your page to search engines and website visitors.
+      description: <a href="#">Meta tags</a> are invisible tags that provide data about your page to search engines and website visitors. You state here if you want to include that in the order.
       type: boolean
       example: true
       default: false

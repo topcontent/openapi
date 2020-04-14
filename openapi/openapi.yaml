@@ -14,7 +14,7 @@ info:
 tags:
   - name: Overview
     description: |
-      The Topcontent API allows you to connect your app to Topcontent and order human made translations and content automatically through API calls.. Topcontent and your website or app back-end will communicate by sending HTTP requests back and forth.
+      The Topcontent API allows you to connect your app to Topcontent and order human made translations and content automatically through API calls. It makes it possible for your website, or back-end, and Topcontent to communicate by sending HTTP requests back and forth.
 
       This page provides an overview of the Topcontent API.
 
@@ -59,14 +59,14 @@ tags:
       It’s good practice to keep track of which API call is connected  to which row in the database so that when the Topcontent API returns the item you are able to easily identify where it should be added to your system.
       The way to do this is by using the `custom_data` parameter.
 
-      The most common way to work with the the Topcontent API is to set a location for us to push notifications to.
+      The most common way to work with the Topcontent API is to set a location for us to push notifications to.
       This is done by setting the `callback_url` to a publicly accessible endpoint.
       Whenever there is an update to the item, like when our team has finished the item, the Topcontent API will POST the content to that endpoint.
 
       When ordering content through the API, remember that the same rules apply as when ordering through the self service system.
       The more information and the more detailed instructions you give the writers the better text you will receive back.
       All context for an item can be appended to the `instructions` parameter when sending an item.
-      For example, if you have a photo that could go along with a product description or a link to a blog post, these should be included.
+      For example, if you have a URL to a photo that could go along with a product description or a URL to a blog post, these should be included.
       You may also want to include a style guide to maintain a consistent tone across all of the work Topcontent does for you.
 
       Once an order has been placed, you will receive an `order_id` back.
@@ -85,7 +85,7 @@ tags:
       ## Getting the items back
 
       The Topcontent API will send the finished items to your system as our team finishes them.
-      However, if you’d like to poll our system for an update, that can be done by passing a comma-separated list of item ids to `GET /translations/items?ids=45646,45647,45648` for translation orders and to `GET /content/items?ids=45646,45647,45648` for content orders.
+      However, if you’d like to poll our system for an update, or to retrieve items, that can be done by passing a comma-separated list of item ids to `GET /translations/items?ids=45646,45647,45648` for translation orders and to `GET /content/items?ids=45646,45647,45648` for content orders.
 
       The best way to get a list of completed item IDs in order is to make a request to the `GET /translations/orders/{id}` for translation orders and `GET /content/orders/{id}` for content orders endpoint and check the `items_approved` array.
 
@@ -158,7 +158,7 @@ tags:
       - Codes in the `5xx` range are errors caused by the server (Topcontent’s responsibility). In the rare case you get this type of error, something is wrong with the Topcontent API. The errors should subside without your mediation. Please contact us if this happens.
 
       ## A successful request
-      An HTTP status `200 OK`, `201 Created` or `204 No Content` is issued whenever your request was a success.
+      An HTTP status `200 OK`, `201 Created` or `204 No Content` is issued whenever your request was a success. Which type of success reply depends on the type of request you send. See the full list of status code below.
 
       ## Examples of error responses
 
@@ -263,7 +263,7 @@ tags:
       ## Include the functionality to approve or return the items for corrections
       Make sure to include the option to approve or return items for corrections.
 
-      Unless you are working with trusted or preferred contributors, it is best to use ```auto_approve = 0```. By getting the item approved, you acknowledge that you are happy with the result and thus forfeit your right to request for corrections.
+      It is best to use ```auto_approve = 0```. By getting the item approved, you acknowledge that you are happy with the result and thus forfeit your right to request for corrections.
   - name: Translation orders
     description: |
       This describes the endpoints that deal with translation orders using the Topcontent API.

@@ -4,7 +4,7 @@ get:
   summary: List invoices
   operationId: get-invoices
   description: |
-      Retrieve all invoices in the account. Optionally filter on year.
+      Retrieve all invoices in the account. Optionally filter on year. This will return a list of URLs to PDF versions of the invoices. The URLs will expire after 60 minutes.
 
       The results are paginated.
   parameters:

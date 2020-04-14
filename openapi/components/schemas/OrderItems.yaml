@@ -1,6 +1,6 @@
 items_draft:
   type: array
-  description: The items that are saved as drafts due to insufficient credits.
+  description: The items that are saved as drafts due to insufficient credits or if an item has been saved as draft using the Topcontent self service.
 items_in_production:
   type: array
   description: The items that are in production and are not yet finished.

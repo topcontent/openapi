@@ -8,7 +8,7 @@ content:
         comment:
           type: string
           maxLength: 25000
-          description: The reason for the contributor for sending the item back for revisions.
+          description: The reason for sending it back for revision. Please state clearly what you would like the writer/translator to change.
           example: |
             Still a great article but a few things need fixing:
 
