@@ -129,7 +129,7 @@ tags:
       - Add free credits to your account for testing.
       - Trigger the “completion” of your items, so that you can test what your code does in response.
       - Manually toggle between item states (```reviewable``` to ```approved```) and other actions without triggering webhooks.
-      - Test webhooks by clicking the "Send Callback" button.
+      - Test webhooks by clicking the "Send Webhook" button.
 
       Note: The sandbox items database may occasionally be wiped clean to prepare it for new features so you should not rely on the sandbox for permanent storage.
 
