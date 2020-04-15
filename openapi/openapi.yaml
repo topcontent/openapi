@@ -226,7 +226,7 @@ tags:
           "callback_url": "https://mysite.com/receive_topcontent_items"
       }
       ```
-      Based on the status of the item you can make needed actions on your end.
+      Based on the status of the item you can make necessary actions on your end.
   - name: Best practices
     description: |
       The following checklist contains practices critical for healthy integration. Make sure your integration has all of them.
