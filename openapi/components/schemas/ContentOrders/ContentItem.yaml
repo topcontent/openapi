@@ -70,11 +70,12 @@ items:
         You can specify exactly what the ordered content item should look like.
         For example how many paragraphs and headers.
         You do this by creating a content template in the client login and then referencing that content template using the template_id in this parameter.
-        Learn more about content templates <a href="#">here</a>.
+        Learn more about content templates <a target="_blank" href="https://help.topcontent.com/en/article/content-templates-o4g5ag/">here</a>.
       type: string
       example: gh2J34kL
     meta_tags:
-      description: <a href="#">Meta tags</a> are invisible tags that provide data about your page to search engines and website visitors. You state here if you want to include that in the order.
+      description: |
+        <a target="_blank" href="https://help.topcontent.com/en/article/a-quick-and-easy-guide-to-meta-tags-in-seo-1qr8hb4/">Meta tags</a> are invisible tags that provide data about your page to search engines and website visitors. You state here if you want to include that in the order.
       type: boolean
       example: true
       default: false
