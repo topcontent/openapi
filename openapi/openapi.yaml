@@ -135,7 +135,7 @@ tags:
 
       ## How to use the sandbox
       - Read the developer documentation.
-      - Create a <a target="_blank" href="https://sandbox.topcontent.com/register">sandbox account</a>.
+      - Create a <a target="_blank" href="https://sandbox.topcontent.com/">sandbox account</a>.
       - Log in and grab a <a target="_blank" href="https://sandbox.topcontent.com/account/">sandbox API key</a>.
       - Test your app, using `http://sandbox.api.topcontent.com/v2/` as the base call URL.
 
