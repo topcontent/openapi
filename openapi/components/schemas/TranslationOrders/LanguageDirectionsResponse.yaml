@@ -12,7 +12,7 @@ items:
     price:
       type: number
       format: double
-      description: //TODP
+      description: Price per unit.
       example: 0.06
     currency:
       $ref: ../CurrencyCode.yaml

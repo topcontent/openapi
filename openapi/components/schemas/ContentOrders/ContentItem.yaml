@@ -92,8 +92,8 @@ items:
             type: string
             description: |
               Posibble values:
-              - ```exact``` - //TODO
-              - ```near``` - //TODO
+              - ```exact``` - Exact match only.
+              - ```near``` - Close match allowed.
         example:
          keyword: 'Jesica Smith'
          match: 'exact'
@@ -110,8 +110,8 @@ items:
             type: string
             description: |
               Posibble values:
-              - ```exact``` - //TODO
-              - ```near``` - //TODO
+              - ```exact``` - Exact match only.
+              - ```near``` - Close match allowed.
         example:
          keyword: 'Jesica Smith'
          match: 'near'
