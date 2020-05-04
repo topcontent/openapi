@@ -327,7 +327,9 @@ x-tagGroups:
       - Languages
 servers:
   - url: 'https://api.topcontent.com/v2'
+    description: Live Server
   - url: 'https://sandbox.api.topcontent.com/v2'
+    description: Sandbox Server
 paths:
   '/translations/orders':
     $ref: 'paths/translations-orders.yaml'
