@@ -1,0 +1,15 @@
+content:
+  application/json:
+    schema:
+      type: object
+#      required:
+#       - comment
+      properties:
+        return_url:
+          type: string
+          maxLength: 200
+          description: |
+            Website URL used for redirection after payment is completed.
+            If provided, a Continue button will be shown on the page.
+            If clients click the button, they are redirected to the specified URL.
+          example: https://mysite.com/payments/redirect

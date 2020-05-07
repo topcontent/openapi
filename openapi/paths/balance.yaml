@@ -14,3 +14,23 @@ get:
             $ref: ../components/schemas/Account/Balance/BalanceResponse.yaml
     '500':
       description: Server error
+post:
+  tags:
+    - Balance
+  summary: Get payment link
+  operationId: get-payment-link
+  description: |
+      Creates a payment link to our hosted payment form where a client can pay.
+      The link takes clients to a secure, Topcontent-hosted payment page where they can pay with their preferred payment method.
+      The list of payment methods presented to the client depends on the currency and country.
+  requestBody:
+    $ref: ../components/requestBodies/GeneratePaymentLink.yaml
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Account/Balance/PaymentLinkResponse.yaml
+    '500':
+      description: Server error

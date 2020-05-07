@@ -1,0 +1,14 @@
+type: object
+properties:
+  created_at:
+    type: string
+    format: date-time
+    example: "2020-03-19T14:10:36+02:00"
+  expires_at:
+    type: string
+    format: date-time
+    example: "2020-03-19T14:10:36+02:00"
+  href:
+    type: string
+    format: URL
+    example: "https://app.topcontent.com/payments/form/a6hj3b0b-13bf-4853-9c26-888b6ec49154"
