@@ -235,7 +235,7 @@ tags:
           }
       }
       ```
-      Based on the status of the item event you can make necessary actions on your end. The following statuses exist:
+      Based on the event you can make necessary actions on your end. The following events exist:
         - `finished` - An item is ready for review.
         - `approved` - An item is manually approved via our Topcontent self-service or API.
         - `auto_approved` - An item has been approved automatically.
