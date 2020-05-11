@@ -223,6 +223,12 @@ tags:
               "quality": "business",
               "source_text": "Get the Best Product Description Writing Service with Topcontent",
               "translated_text": "Få de bästa produktbeskrivningarna skrivna av Topcontent",
+              "source_urls": {
+                  "https://www.wikipedia.org/",
+                  "https://en.wikipedia.org/wiki/Content",
+                  "https://en.wikipedia.org/wiki/Product_description"
+              },
+              "target_url": "http://example.com/",
               "auto_approve": false,
               "custom_data": "{request_id: 87353}",
               "callback_url": "https://mysite.com/receive_topcontent_items"
