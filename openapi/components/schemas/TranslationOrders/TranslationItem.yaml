@@ -75,10 +75,10 @@ properties:
     items:
       type: string
       format: URL
-      example:
-        - 'https://www.wikipedia.org/'
-        - 'https://en.wikipedia.org/wiki/Content'
-        - 'https://en.wikipedia.org/wiki/Product_description'
+    example:
+      - 'https://www.wikipedia.org/'
+      - 'https://en.wikipedia.org/wiki/Content'
+      - 'https://en.wikipedia.org/wiki/Product_description'
   target_url:
     description: Let the writer know where this particular article will be published so that they can better understand how to write the article.
     type: string
