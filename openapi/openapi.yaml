@@ -211,22 +211,28 @@ tags:
       The following is an example of the payload in the webhook from the Topcontent API:
       ```
       {
-          "item_id": 167834,
-          "order_id": 3456,
-          "credits_used": 1.08,
-          "currency": "EUR",
-          "status": "approved",
-          "source_language_code": "en",
-          "target_language_code": "sv",
-          "quality": "business",
-          "source_text": "Get the Best Product Description Writing Service with Topcontent",
-          "translated_text": "Få de bästa produktbeskrivningarna skrivna av Topcontent",
-          "auto_approve": false,
-          "custom_data": "{request_id: 87353}",
-          "callback_url": "https://mysite.com/receive_topcontent_items"
+          "event": "approved",
+          "item" : {
+              "item_id": 167834,
+              "order_id": 3456,
+              "credits_used": 1.08,
+              "currency": "EUR",
+              "status": "approved",
+              "source_language_code": "en",
+              "target_language_code": "sv",
+              "quality": "business",
+              "source_text": "Get the Best Product Description Writing Service with Topcontent",
+              "translated_text": "Få de bästa produktbeskrivningarna skrivna av Topcontent",
+              "auto_approve": false,
+              "custom_data": "{request_id: 87353}",
+              "callback_url": "https://mysite.com/receive_topcontent_items"
+          }
       }
       ```
-      Based on the status of the item you can make necessary actions on your end.
+      Based on the status of the item event you can make necessary actions on your end. The following statuses exist:
+        - `finished` - An item is ready for review.
+        - `approved` - An item is manually approved via our Topcontent self-service or API.
+        - `auto_approved` - An item has been approved automatically.
   - name: Best practices
     description: |
       The following checklist contains practices critical for healthy integration. Make sure your integration has all of them.
