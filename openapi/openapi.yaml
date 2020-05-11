@@ -263,7 +263,7 @@ tags:
       ## Include the functionality to approve or return the items for corrections
       Make sure to include the option to approve or return items for corrections.
 
-      It is best to use ```auto_approve = 0```. By getting the item approved, you acknowledge that you are happy with the result and thus forfeit your right to request for corrections.
+      It is best to use ```auto_approve = false```. By getting the item approved, you acknowledge that you are happy with the result and thus forfeit your right to request for corrections.
   - name: Translation orders
     description: |
       This describes the endpoints that deal with translation orders using the Topcontent API.
