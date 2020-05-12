@@ -26,6 +26,8 @@ tags:
 
       REST also implies a nice and clean structure for URLs or endpoints. This means you can reach any part of the Topcontent API on `https://api.topcontent.com/v2/` adding the name of the resource you want to interact with.
 
+      [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/73b6b2723a9e33588e38)
+
       ## Headers
       Make sure the following content type headers are set on every request:
 
@@ -376,6 +378,6 @@ paths:
   '/balance/transactions':
     $ref: 'paths/balance-transactions.yaml'
 
-  '/languages':
+  '/service/languages':
     $ref: 'paths/service-languages.yaml'
 #components:

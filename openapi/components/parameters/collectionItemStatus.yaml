@@ -4,7 +4,6 @@ description: |
   Retrieve a list of items with the provided status. The following statuses exist:
    - `draft`
    - `in_production`
-   - `revising`
    - `reviewable`
    - `approved`
 schema:

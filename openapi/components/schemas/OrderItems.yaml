@@ -4,9 +4,9 @@ items_draft:
 items_in_production:
   type: array
   description: The items that are in production and are not yet finished.
-items_revising:
-  type: array
-  description: The items that have been returned for revision.
+#items_revising:
+#  type: array
+#  description: The items that have been returned for revision.
 items_reviewable:
   type: array
   description: The items that have been finished by our team but have not been approved by you.

@@ -23,6 +23,6 @@ properties:
     example:
       items_draft: []
       items_in_production: [23456]
-      items_revising: []
+#      items_revising: []
       items_reviewable: []
       items_approved: []

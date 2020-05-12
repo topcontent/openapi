@@ -31,7 +31,6 @@ properties:
       One of the following values:
        - ```draft```
        - ```in_production```
-       - ```revising```
        - ```reviewable```
        - ```approved```
     example: 'approved'
