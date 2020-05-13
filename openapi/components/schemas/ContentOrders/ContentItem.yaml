@@ -157,10 +157,25 @@ items:
       $ref: ../CustomData.yaml
     callback_url:
       $ref: ../CallbackURL.yaml
-    body:
-      description: Item text. Available if a status of the item is ```reviewable``` or ```approved```
-      type: string
+    content:
+      description: Item content. Available if a status of the item is ```reviewable``` or ```approved```
+      type: object
       readOnly: true
-      example: "<h1>Good holiday weather</h1> <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p> <h2>Where can I get some?</h2> <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>"
+      properties:
+        meta_title:
+          type: string
+          description: Item's Meta Title. If ordered.
+#          readOnly: true
+          example: Meta title
+        meta_description:
+          type: string
+          description: Item's Meta Description. If ordered.
+#          readOnly: true
+          example: Meta description
+        body:
+          type: string
+          description: Item text.
+#          readOnly: true
+          example: "<h1>Good holiday weather</h1> <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p> <h2>Where can I get some?</h2> <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>"
 #    return_options:
 #      $ref: ../ReturnOptions.yaml
