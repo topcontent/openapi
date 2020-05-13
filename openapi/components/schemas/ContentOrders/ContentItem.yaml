@@ -145,7 +145,7 @@ items:
             format: URL
             maxLength: 255
         example:
-         anchor: Anchor text
+         anchor_text: Anchor text
          url: "https://en.wikipedia.org/wiki/Anchor_text"
     tone_of_voice:
       $ref: ../ToneOfVoice.yaml
