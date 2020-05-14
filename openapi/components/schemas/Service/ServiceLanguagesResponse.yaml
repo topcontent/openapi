@@ -16,6 +16,6 @@ items:
     name:
       type: string
       example: Spanish (Spain)
-    localized_name:
-      type: string
-      example: Español
+#    localized_name:
+#      type: string
+#      example: Español
