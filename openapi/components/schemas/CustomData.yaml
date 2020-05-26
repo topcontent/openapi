@@ -1,3 +1,4 @@
 description: Your custom data that will be returned untouched. Use this field to keep track of where in your database you shall save it when it’s returned.
 type: string
+maxLength: 65535
 example: "{request_id: 87353}"

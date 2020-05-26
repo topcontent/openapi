@@ -84,6 +84,8 @@ items:
       maxItems: 1
       items:
         type: object
+        required:
+          - keyword
         properties:
           keyword:
             type: string
@@ -92,7 +94,7 @@ items:
             type: string
             description: |
               Posibble values:
-              - ```exact``` - Exact match only.
+              - ```exact``` - Exact match only. Default.
               - ```near``` - Close match allowed.
         example:
          keyword: 'Jesica Smith'
@@ -102,6 +104,8 @@ items:
       type: array
       items:
         type: object
+        required:
+          - keyword
         properties:
           keyword:
             type: string
@@ -110,7 +114,7 @@ items:
             type: string
             description: |
               Posibble values:
-              - ```exact``` - Exact match only.
+              - ```exact``` - Exact match only. Default.
               - ```near``` - Close match allowed.
         example:
          keyword: 'Jesica Smith'
@@ -136,6 +140,9 @@ items:
       type: array
       items:
         type: object
+        required:
+          - anchor_text
+          - url
         properties:
           anchor_text:
             type: string
