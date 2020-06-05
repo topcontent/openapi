@@ -68,18 +68,14 @@ properties:
     type: string
     readOnly: true
     example: "Få de bästa produktbeskrivningarna skrivna av Topcontent"
-  source_urls:
-    description: If you have a source of information or a site you want to direct the writer's attention to. Include a URL to it here.
-    type: array
-    items:
-      type: string
-      format: URL
-    example:
-      - 'https://www.wikipedia.org/'
-      - 'https://en.wikipedia.org/wiki/Content'
-      - 'https://en.wikipedia.org/wiki/Product_description'
+  source_url:
+    description: If you have a source of information or a site you want to direct the translator's attention to. Include a URL to it here.
+    type: string
+    format: URL
+    maxLength: 255
+    example: 'https://en.wikipedia.org/wiki/Content'
   target_url:
-    description: Let the writer know where this particular article will be published so that they can better understand how to write the article.
+    description: Let the writer know where this particular item will be published so that they can better understand how to translate the item.
     type: string
     format: URL
     maxLength: 255
