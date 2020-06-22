@@ -214,6 +214,7 @@ tags:
       ```
       {
           "event": "approved",
+          "api_key": "4ca8173c-1fac-435d-af76-ad2a370b8b86",
           "item" : {
               "item_id": 167834,
               "order_id": 3456,
