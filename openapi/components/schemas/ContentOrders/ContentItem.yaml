@@ -130,7 +130,7 @@ items:
       type: string
       format: URL
       maxLength: 255
-      example: 'http://example.com/'
+      example: 'https://example.com/'
     links:
       description: If you want the writer to include links to a specific webpage you can use this element to specify that.
       type: array

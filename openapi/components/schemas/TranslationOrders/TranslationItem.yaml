@@ -79,7 +79,7 @@ properties:
     type: string
     format: URL
     maxLength: 255
-    example: 'http://example.com/'
+    example: 'https://example.com/'
   tone_of_voice:
     $ref: ../ToneOfVoice.yaml
   instructions:

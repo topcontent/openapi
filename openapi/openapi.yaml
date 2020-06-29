@@ -139,7 +139,7 @@ tags:
       - Read the developer documentation.
       - Create a <a target="_blank" href="https://sandbox.topcontent.com/">sandbox account</a>.
       - Log in and grab a <a target="_blank" href="https://sandbox.topcontent.com/account/">sandbox API key</a>.
-      - Test your app, using `http://sandbox.api.topcontent.com/v2/` as the base call URL.
+      - Test your app, using `https://sandbox.api.topcontent.com/v2/` as the base call URL.
 
       Ready to deploy? Head over to the live Topcontent site. Create a <a href="https://app.topcontent.com/signup" target="_blank">full client account</a>, grab a live API key - and remember to paste it into your app.
   - name: Handling errors
@@ -227,7 +227,7 @@ tags:
               "source_text": "Get the Best Product Description Writing Service with Topcontent",
               "translated_text": "Få de bästa produktbeskrivningarna skrivna av Topcontent",
               "source_url": "https://en.wikipedia.org/wiki/Content",
-              "target_url": "http://example.com/",
+              "target_url": "https://example.com/",
               "auto_approve": false,
               "custom_data": "{request_id: 87353}",
               "callback_url": "https://mysite.com/receive_topcontent_items"
