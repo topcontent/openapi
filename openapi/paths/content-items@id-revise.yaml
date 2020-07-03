@@ -9,16 +9,16 @@ put:
     $ref: ../components/requestBodies/ReviseItem.yaml
   responses:
     '200':
-      description: Success
+      description: OK
       content:
         application/json:
           schema:
             $ref: ../components/schemas/ReviewResponse.yaml
     '422':
-      description: Forbidden
+      description: Unprocessable Entity
       content:
         application/json:
           schema:
             $ref: ../components/schemas/ForbiddenResponseIncorrectID.yaml
     '500':
-      description: Server error
+      description: Internal Server Error

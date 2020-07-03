@@ -7,13 +7,13 @@ get:
       Retrieve the details of the credit balance.
   responses:
     '200':
-      description: Success
+      description: OK
       content:
         application/json:
           schema:
             $ref: ../components/schemas/Account/Balance/BalanceResponse.yaml
     '500':
-      description: Server error
+      description: Internal Server Errorы
 post:
   tags:
     - Balance
@@ -27,10 +27,10 @@ post:
     $ref: ../components/requestBodies/GeneratePaymentLink.yaml
   responses:
     '200':
-      description: Success
+      description: OK
       content:
         application/json:
           schema:
             $ref: ../components/schemas/Account/Balance/PaymentLinkResponse.yaml
     '500':
-      description: Server error
+      description: Internal Server Error

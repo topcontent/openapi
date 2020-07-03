@@ -13,7 +13,7 @@ get:
     - $ref: ../components/parameters/collectionOffset.yaml
   responses:
     '200':
-      description: Success
+      description: OK
       content:
         application/json:
           schema:

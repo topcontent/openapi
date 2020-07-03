@@ -8,17 +8,17 @@ post:
   requestBody:
     $ref: ../components/requestBodies/TranslationOrder.yaml
   responses:
-    '200':
-      description: Success
+    '201':
+      description: Created
       content:
         application/json:
           schema:
             $ref: ../components/schemas/TranslationOrders/TranslationNewOrderResponse.yaml
     '422':
-      description: Forbidden
+      description: Unprocessable Entity
       content:
         application/json:
           schema:
             $ref: ../components/schemas/TranslationOrders/TranslationOrderErrorResponse.yaml
     '500':
-      description: Server error
+      description: Internal Server Error

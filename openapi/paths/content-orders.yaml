@@ -10,20 +10,20 @@ post:
   requestBody:
     $ref: ../components/requestBodies/ContentOrder.yaml
   responses:
-    '200':
-      description: Success
+    '201':
+      description: Created
       content:
         application/json:
           schema:
             $ref: ../components/schemas/ContentOrders/ContentNewOrderResponse.yaml
     '422':
-      description: Forbidden
+      description: Unprocessable Entity
       content:
         application/json:
           schema:
             $ref: ../components/schemas/ContentOrders/ContentOrderErrorResponse.yaml
     '500':
-      description: Server error
+      description: Internal Server Error
 ##parameters:
 ##  - name: pretty_print
 ##    in: query
@@ -54,19 +54,19 @@ post:
 #
 #  responses:
 #    '200':
-#      description: Success
+#      description: OK
 #      content:
 #        application/json:
 #          schema:
 #            $ref: ../components/schemas/ContentOrderSuccessResponse.yaml
 #    '422':
-#      description: Forbidden
+#      description: Unprocessable Entityы
 #      content:
 #        application/json:
 #          schema:
 #            $ref: ../components/schemas/ContentOrderErrorResponse.yaml
 #    '500':
-#      description: Server error
+#      description: Internal Server Error
 #get:
 #  tags:
 #    - Content orders
@@ -90,7 +90,7 @@ post:
 ##        type: boolean
 #  responses:
 #    '200':
-#      description: Success
+#      description: OK
 #      content:
 #        application/json:
 #          schema:
@@ -103,7 +103,7 @@ post:
 #      Cancels all available items in an order. Please keep in mind that this will not cancel items that are in another status (e.g. pending, reviewable, etc.).
 #  responses:
 #    '200':
-#      description: Success
+#      description: OK
 #      content:
 #        application/json:
 #          schema:

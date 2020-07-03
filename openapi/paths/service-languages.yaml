@@ -7,10 +7,10 @@ get:
       Returns a list of supported languages and their language codes.
   responses:
     '200':
-      description: Success
+      description: OK
       content:
         application/json:
           schema:
             $ref: ../components/schemas/Service/ServiceLanguagesResponse.yaml
     '500':
-      description: Server error
+      description: Internal Server Error

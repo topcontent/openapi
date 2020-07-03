@@ -9,16 +9,16 @@ get:
     - $ref: ../components/parameters/collectionLanguageCode.yaml
   responses:
     '200':
-      description: Success
+      description: OKы
       content:
         application/json:
           schema:
             $ref: ../components/schemas/ContentOrders/ContentLanguagesResponse.yaml
 #    '422':
-#      description: Forbidden
+#      description: Unprocessable Entity
 #      content:
 #        application/json:
 #          schema:
 #            $ref: ../components/schemas/LanguagesErrorResponse.yaml
     '500':
-      description: Server error
+      description: Internal Server Error

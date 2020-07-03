@@ -14,16 +14,16 @@ get:
         type: integer
   responses:
     '200':
-      description: Success
+      description: OK
       content:
         application/json:
           schema:
             $ref: ../components/schemas/ContentOrders/ContentOrderResponse.yaml
     '422':
-      description: Forbidden
+      description: Unprocessable Entity
       content:
         application/json:
           schema:
             $ref: ../components/schemas/ContentOrders/ContentOrderErrorResponse.yaml
     '500':
-      description: Server error
+      description: Internal Server Error
