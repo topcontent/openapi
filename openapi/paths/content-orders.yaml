@@ -60,7 +60,7 @@ post:
 #          schema:
 #            $ref: ../components/schemas/ContentOrderSuccessResponse.yaml
 #    '422':
-#      description: Unprocessable Entityы
+#      description: Unprocessable Entity
 #      content:
 #        application/json:
 #          schema:

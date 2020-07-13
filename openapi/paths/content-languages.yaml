@@ -9,7 +9,7 @@ get:
     - $ref: ../components/parameters/collectionLanguageCode.yaml
   responses:
     '200':
-      description: OKы
+      description: OK
       content:
         application/json:
           schema:
