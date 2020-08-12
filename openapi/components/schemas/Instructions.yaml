@@ -1,4 +1,5 @@
-description: Instructions for a contributor when writing. It is strongly encouraged to provide detailed instructions for the contributor.
+description: |
+  Instructions for a contributor when writing. It is strongly encouraged to provide detailed instructions for the contributor. It is possible to add HTML tags within the instructions. We accept these HTML tags: `<a>`, `<b>`, `<u>`, `<i>`, `<ul>`, `<li>`.
 type: string
 maxLength: 1000
 writeOnly: true

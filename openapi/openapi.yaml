@@ -235,6 +235,8 @@ tags:
         - `finished` - An item is ready for review.
         - `approved` - An item is manually approved via our Topcontent self-service or API.
         - `auto_approved` - An item has been approved automatically.
+
+      To test webhooks you can use <a target="_blank" href="https://webhook.site/">Webhook.site</a>.
   - name: Best practices
     description: |
       The following checklist contains practices critical for healthy integration. Make sure your integration has all of them.
@@ -252,6 +254,8 @@ tags:
       ## Provide instructions for contributors (writers and translators)
 
       The better instructions you add the better content you will receive from the writers. <a target="_blank" href="https://help.topcontent.com/en/article/how-to-write-good-instructions-5e8377/">Read more</a> about how to write good instructions.
+
+      It is possible to add HTML tags within the instructions. We accept these HTML tags: `<a>`, `<b>`, `<u>`, `<i>`, `<ul>`, `<li>`.
 
       ## Store internal information in custom_data
 
