@@ -5,6 +5,8 @@ post:
   operationId: submit-translation-order
   description: |
       Submits an item or group of items to translate. One order should contain at least one item. An order could contain different types of items.
+
+      >**Note:** If you do not have enough credits on the account an order will not be placed and the system will return an error message.
   requestBody:
     $ref: ../components/requestBodies/TranslationOrder.yaml
   responses:

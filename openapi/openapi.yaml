@@ -75,11 +75,8 @@ tags:
 
       ## Checking on the status of the order
 
-      Once an item has been sent to the Topcontent API, it can go through a few different statuses.
-      If your client account doesn’t have enough credits the items will be saved as drafts and the status of these items will be Draft.
+      Once an order has been sent to the Topcontent API, the items in the order will immediately go to production and the status of these items will be `in_production`. The items will remain in this state until they are finished.
 
-      If the client account has enough credits the items in the order will immediately go to production and the status of these items will be `in_production`.
-      The items will remain in this state until they are finished.
       At this time the item will either be in a `reviewable` state (if you want to review the item and perhaps communicate with our writers about changes you’d like to have made) or it will be in the `approved` state.
 
       At any time you can get an update on the items in the order by sending a request to the `GET /translations/orders/{id}` for translation items and `GET /content/orders/{id}` for content orders endpoint.
@@ -197,7 +194,7 @@ tags:
   - name: Webhooks
     description: |
       Webhooks are used to process real-time status updates, for example when an item is reviewable.
-      When submitting an order, you can set “callback_url” for each item in the order.
+      When submitting an order, you can set `callback_url` for each item in the order.
       Topcontent will post any updates about the item as they happen which makes it the most efficient way to sync your system with Topcontent.
 
       Callback notifications are sent when:
@@ -248,7 +245,7 @@ tags:
       - Retrieve completed items
 
       ## Make use of triple brackets when ordering translations
-      If ordering translations triple brackets are useful to make sure certain texts, such as brand names, are preserved and uncharged. <a target="_blank" href="https://help.topcontent.com/en/article/how-do-i-exclude-words-or-phrases-1j0sv8c">Learn more</a>
+      If ordering translations triple brackets are useful to make sure certain texts, such as brand names, are preserved and uncharged. Opening and closing triple brackets must be on the same line. <a target="_blank" href="https://help.topcontent.com/en/article/how-do-i-exclude-words-or-phrases-1j0sv8c">Learn more</a>
 
       Note: HTML tags are an exception to this rule. Do not bracket them as you are not charged for them by default.
 
