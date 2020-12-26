@@ -227,6 +227,7 @@ tags:
               "target_url": "https://example.com/",
               "auto_approve": false,
               "custom_data": "{request_id: 87353}",
+              "internal_id": "64NR88XZ",
               "callback_url": "https://mysite.com/receive_topcontent_items"
           }
       }

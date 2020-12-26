@@ -1,0 +1,4 @@
+description: Your internal ID.
+example: "64NR88XZ"
+type: string
+maxLength: 50

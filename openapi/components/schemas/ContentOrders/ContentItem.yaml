@@ -157,6 +157,8 @@ items:
       $ref: ../AutoApprove.yaml
     custom_data:
       $ref: ../CustomData.yaml
+    internal_id:
+      $ref: ../InternalId.yaml
     callback_url:
       $ref: ../CallbackURL.yaml
     content:
