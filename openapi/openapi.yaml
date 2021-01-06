@@ -255,7 +255,7 @@ tags:
 
       The better instructions you add the better content you will receive from the writers. <a target="_blank" href="https://help.topcontent.com/en/article/how-to-write-good-instructions-5e8377/">Read more</a> about how to write good instructions.
 
-      It is possible to add HTML tags within the instructions. We accept these HTML tags: `<a>`, `<b>`, `<u>`, `<i>`, `<ul>`, `<li>`.
+      It is possible to add HTML tags within the instructions. We accept these HTML tags: `<p>`, `<a>`, `<strong>`, `<em>`, `<u>`, `<ul>`, `<li>`.
 
       ## Store internal information in custom_data
 
