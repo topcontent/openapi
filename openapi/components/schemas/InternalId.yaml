@@ -1,0 +1,4 @@
+description: Your internal id that will be returned untouched. Use this field to keep track of where in your database you shall save it when it’s returned. This information will also be shown in the self-service.
+type: string
+maxLength: 50
+example: "12345"
