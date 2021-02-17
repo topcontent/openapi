@@ -61,7 +61,7 @@ items:
       type: integer
       description: Minimum amount of words for the ordered content item. Basically, how long an article you would like to order.
       minimum: 5
-      maximum: 5000
+      maximum: 10000
       example: 800
     template_id:
       description: |
