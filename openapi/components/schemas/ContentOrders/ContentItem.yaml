@@ -149,6 +149,22 @@ items:
         example:
          anchor_text: Anchor text
          url: "https://en.wikipedia.org/wiki/Anchor_text"
+    images_count:
+      description: |
+        How many images writer should add to an article
+      type: integer
+      minimum: 1
+      maximum: 50
+      example: 3
+      default: null
+    tweet_urls:
+      description: |
+        How many Tweet URLs writer should add to an article
+      type: integer
+      minimum: 1
+      maximum: 50
+      example: 3
+      default: null
     tone_of_voice:
       $ref: ../ToneOfVoice.yaml
     instructions:
