@@ -3,6 +3,7 @@ description: |
   - ```raw```
   - ```standard```
   - ```business```
+  - ```revise```
 
   You can read more about our qualities levels <a target="_blind" href="https://topcontent.com/pricing/topcontent-quality-levels/">here</a>.
 type: string

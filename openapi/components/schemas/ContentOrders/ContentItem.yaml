@@ -180,7 +180,6 @@ items:
     content:
       description: Item content. Available if a status of the item is ```reviewable``` or ```approved```
       type: object
-      readOnly: true
       properties:
         meta_title:
           type: string
