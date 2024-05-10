@@ -184,11 +184,13 @@ items:
       properties:
         meta_title:
           type: string
+          readOnly: true
           description: Item's Meta Title. If ordered.
 #          readOnly: true
           example: Meta title
         meta_description:
           type: string
+          readOnly: true
           description: Item's Meta Description. If ordered.
 #          readOnly: true
           example: Meta description
